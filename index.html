@@ -176,15 +176,13 @@
                 button.disabled = true;
             });
 
-            // 複数選択問題かどうかのチェック
-            const isMultiSelect = Array.isArray(currentItem.correct);
+            // 正解が配列かどうかをチェック（複数選択問題の可能性）
+            const isCorrectArray = Array.isArray(currentItem.correct);
+            const isCorrect = isCorrectArray 
+                ? currentItem.correct.includes(selectedIndex)
+                : selectedIndex === currentItem.correct;
 
-            if (isMultiSelect) {
-                 // 複数選択問題は現在未対応のため、エラーメッセージを表示
-                 feedbackMessage.textContent = "ざんねん...このもんだいは、1つしかえらべません。";
-                 feedbackMessage.classList.add('text-red-600');
-                 feedbackMessage.classList.remove('text-green-600');
-            } else if (selectedIndex === currentItem.correct) {
+            if (isCorrect) {
                 feedbackMessage.textContent = "せいかい！";
                 feedbackMessage.classList.add('text-green-600');
                 feedbackMessage.classList.remove('text-red-600');
@@ -202,11 +200,15 @@
                     selectedButton.classList.remove('bg-gray-200', 'hover:bg-blue-300');
                     selectedButton.classList.add('bg-red-400');
                 }
-                const correctButton = optionsContainer.children[currentItem.correct];
-                if(correctButton) {
-                    correctButton.classList.remove('bg-gray-200', 'hover:bg-blue-300');
-                    correctButton.classList.add('bg-green-400');
-                }
+                // 正解のボタンをハイライト表示
+                const correctIndices = isCorrectArray ? currentItem.correct : [currentItem.correct];
+                correctIndices.forEach(correctIndex => {
+                    const correctButton = optionsContainer.children[correctIndex];
+                    if(correctButton) {
+                        correctButton.classList.remove('bg-gray-200', 'hover:bg-blue-300');
+                        correctButton.classList.add('bg-green-400');
+                    }
+                });
             }
             nextBtn.classList.remove('hidden');
         }
@@ -267,6 +269,7 @@
                                                             "type": "ARRAY",
                                                             "items": { "type": "STRING" }
                                                         },
+                                                        // 正解を配列として一貫して扱うように変更
                                                         "correct": {
                                                             "type": "ARRAY",
                                                             "items": { "type": "NUMBER" }
@@ -290,8 +293,10 @@
                                                             "type": "ARRAY",
                                                             "items": { "type": "STRING" }
                                                         },
+                                                        // 正解を配列として一貫して扱うように変更
                                                         "correct": {
-                                                            "type": "NUMBER"
+                                                            "type": "ARRAY",
+                                                            "items": { "type": "NUMBER" }
                                                         }
                                                     }
                                                 }
@@ -312,8 +317,10 @@
                                                             "type": "ARRAY",
                                                             "items": { "type": "STRING" }
                                                         },
+                                                        // 正解を配列として一貫して扱うように変更
                                                         "correct": {
-                                                            "type": "NUMBER"
+                                                            "type": "ARRAY",
+                                                            "items": { "type": "NUMBER" }
                                                         }
                                                     }
                                                 }
@@ -395,4 +402,3 @@
     </script>
 </body>
 </html>
-
