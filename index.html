@@ -108,15 +108,12 @@
             storySelectionScreen.classList.add('hidden');
             gameArea.classList.remove('hidden');
 
-            // 選択されたお話のキーとデータを保存
             currentStoryKey = storyKey;
             const selectedStory = storyData[currentStoryKey];
             currentQuestions = selectedStory.questions;
             currentQuestionIndex = 0;
             
-            // お話の文章を一度だけ表示する
             gameText.textContent = selectedStory.text;
-
             displayQuestion();
         }
 
@@ -124,7 +121,6 @@
          * 現在の問題を表示する
          */
         function displayQuestion() {
-            // 全問終了後の処理
             if (currentQuestionIndex >= currentQuestions.length) {
                 gameText.textContent = "おしまい！よく がんばりました！";
                 gamePrompt.textContent = "もういちど ちょうせんする？";
@@ -132,25 +128,22 @@
                 feedbackMessage.textContent = "";
                 nextBtn.classList.remove('hidden');
                 nextBtn.textContent = "ほかのおはなしをえらぶ";
-                backToSelectionBtn.classList.add('hidden'); // 「もどる」ボタンを非表示
+                backToSelectionBtn.classList.add('hidden');
                 
-                nextBtn.onclick = () => displayStorySelection(); // クリックイベントを再定義
-
+                nextBtn.onclick = () => displayStorySelection();
                 return;
             }
 
             const currentItem = currentQuestions[currentQuestionIndex];
             
-            // UIをリセット
             gamePrompt.textContent = currentItem.prompt;
             optionsContainer.innerHTML = "";
             nextBtn.classList.add('hidden');
-            backToSelectionBtn.classList.remove('hidden'); // 「もどる」ボタンを表示
+            backToSelectionBtn.classList.remove('hidden');
             feedbackMessage.textContent = "";
             
-            nextBtn.onclick = () => goToNextQuestion(); // クリックイベントを元に戻す
+            nextBtn.onclick = () => goToNextQuestion();
 
-            // 選択肢ボタンを表示
             currentItem.options.forEach((option, index) => {
                 const button = document.createElement('button');
                 button.textContent = option;
@@ -171,16 +164,13 @@
         function handleAnswer(selectedIndex) {
             const currentItem = currentQuestions[currentQuestionIndex];
             
-            // ボタンを無効化
             Array.from(optionsContainer.children).forEach(button => {
                 button.disabled = true;
             });
 
-            // 正解が配列かどうかをチェック（複数選択問題の可能性）
-            const isCorrectArray = Array.isArray(currentItem.correct);
-            const isCorrect = isCorrectArray 
-                ? currentItem.correct.includes(selectedIndex)
-                : selectedIndex === currentItem.correct;
+            // 正解が配列でも数値でも対応
+            const correctAnswers = Array.isArray(currentItem.correct) ? currentItem.correct : [currentItem.correct];
+            const isCorrect = correctAnswers.includes(selectedIndex);
 
             if (isCorrect) {
                 feedbackMessage.textContent = "せいかい！";
@@ -200,9 +190,7 @@
                     selectedButton.classList.remove('bg-gray-200', 'hover:bg-blue-300');
                     selectedButton.classList.add('bg-red-400');
                 }
-                // 正解のボタンをハイライト表示
-                const correctIndices = isCorrectArray ? currentItem.correct : [currentItem.correct];
-                correctIndices.forEach(correctIndex => {
+                correctAnswers.forEach(correctIndex => {
                     const correctButton = optionsContainer.children[correctIndex];
                     if(correctButton) {
                         correctButton.classList.remove('bg-gray-200', 'hover:bg-blue-300');
@@ -227,7 +215,7 @@
         function displayStorySelection() {
             gameArea.classList.add('hidden');
             storySelectionScreen.classList.remove('hidden');
-            backToSelectionBtn.classList.add('hidden'); // 選択画面では「もどる」ボタンは不要
+            backToSelectionBtn.classList.add('hidden');
         }
 
         /**
@@ -235,102 +223,21 @@
          */
         async function loadStories() {
             loadingSpinnerInitial.classList.remove('hidden');
-            let backoffDelay = 1000; // 1秒
+            let backoffDelay = 1000;
             const maxRetries = 5;
 
             for (let i = 0; i < maxRetries; i++) {
                 try {
-                    // stories.jsonファイルをAPIで取得
                     const apiKey = "";
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                    
                     const payload = {
                         contents: [{
                             role: "user",
                             parts: [{
-                                text: `Provide the stories.json data. The JSON should be in the following format: a single JSON object where keys are the story titles (e.g., "ももたろう") and values are objects containing 'text' (the story string) and 'questions' (an array of question objects). Each question object must have 'prompt' (string), 'options' (array of strings), and 'correct' (the correct index as a number OR an array of numbers for multi-select questions).`
+                                text: `日本語の昔話「ももたろう」「おおきなかぶ」「うさぎとかめ」の3つについて、それぞれ簡単なあらすじと、その内容に関する選択式の問題を3つ作成してください。JSON形式で出力し、キーを物語の名前（「ももたろう」など）としてください。各物語のオブジェクトは、テキスト（"text"）と質問の配列（"questions"）を含み、各質問オブジェクトはプロンプト（"prompt"）、選択肢の配列（"options"）、そして正解のインデックス（"correct"）を含みます。`
                             }]
-                        }],
-                        generationConfig: {
-                            responseMimeType: "application/json",
-                            responseSchema: {
-                                type: "OBJECT",
-                                properties: {
-                                    "ももたろう": {
-                                        "type": "OBJECT",
-                                        "properties": {
-                                            "text": { "type": "STRING" },
-                                            "questions": {
-                                                "type": "ARRAY",
-                                                "items": {
-                                                    "type": "OBJECT",
-                                                    "properties": {
-                                                        "prompt": { "type": "STRING" },
-                                                        "options": {
-                                                            "type": "ARRAY",
-                                                            "items": { "type": "STRING" }
-                                                        },
-                                                        // 正解を配列として一貫して扱うように変更
-                                                        "correct": {
-                                                            "type": "ARRAY",
-                                                            "items": { "type": "NUMBER" }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    "おおきなかぶ": {
-                                        "type": "OBJECT",
-                                        "properties": {
-                                            "text": { "type": "STRING" },
-                                            "questions": {
-                                                "type": "ARRAY",
-                                                "items": {
-                                                    "type": "OBJECT",
-                                                    "properties": {
-                                                        "prompt": { "type": "STRING" },
-                                                        "options": {
-                                                            "type": "ARRAY",
-                                                            "items": { "type": "STRING" }
-                                                        },
-                                                        // 正解を配列として一貫して扱うように変更
-                                                        "correct": {
-                                                            "type": "ARRAY",
-                                                            "items": { "type": "NUMBER" }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    "うさぎとかめ": {
-                                        "type": "OBJECT",
-                                        "properties": {
-                                            "text": { "type": "STRING" },
-                                            "questions": {
-                                                "type": "ARRAY",
-                                                "items": {
-                                                    "type": "OBJECT",
-                                                    "properties": {
-                                                        "prompt": { "type": "STRING" },
-                                                        "options": {
-                                                            "type": "ARRAY",
-                                                            "items": { "type": "STRING" }
-                                                        },
-                                                        // 正解を配列として一貫して扱うように変更
-                                                        "correct": {
-                                                            "type": "ARRAY",
-                                                            "items": { "type": "NUMBER" }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                },
-                                "propertyOrdering": ["ももたろう", "おおきなかぶ", "うさぎとかめ"]
-                            }
-                        }
+                        }]
                     };
 
                     const response = await fetch(apiUrl, {
@@ -340,17 +247,19 @@
                     });
                     
                     if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
+                        if (response.status === 401) {
+                            throw new Error(`APIキーに問題があります。`);
+                        }
+                        throw new Error(`データの読み込みに失敗しました (HTTP Status: ${response.status})`);
                     }
 
                     const result = await response.json();
                     const jsonText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
                     if (!jsonText) {
-                        throw new Error("API response is empty or malformed");
+                        throw new Error("APIからの応答が空か、正しくない形式です。");
                     }
                     storyData = JSON.parse(jsonText);
                     
-                    // ボタンを動的に生成
                     storyOptionsContainer.innerHTML = '';
                     for (const key in storyData) {
                         const button = document.createElement('button');
@@ -368,7 +277,6 @@
                         });
                         storyOptionsContainer.appendChild(button);
                     }
-                    // 成功した場合はループを抜ける
                     break; 
 
                 } catch (error) {
@@ -378,8 +286,8 @@
                         backoffDelay *= 2;
                     } else {
                         const errorMessage = document.createElement('p');
-                        errorMessage.textContent = 'おはなしのデータをよみこむことができませんでした。もういちどためしてください。';
-                        errorMessage.classList.add('text-red-500', 'mt-4');
+                        errorMessage.textContent = `エラーが発生しました: ${error.message}`;
+                        errorMessage.classList.add('text-red-500', 'mt-4', 'font-bold');
                         storyOptionsContainer.appendChild(errorMessage);
                     }
                 } finally {
@@ -398,6 +306,11 @@
         window.onload = function() {
             loadStories();
         };
+
+    </script>
+</body>
+</html>
+
 
     </script>
 </body>
