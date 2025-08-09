@@ -104,11 +104,15 @@
          * 選択された物語の問題をセットして、ゲーム画面に切り替える
          * @param {string} storyKey 選択された物語のキー
          */
-        function startStoryGame(storyKey) {
+        async function startStoryGame(storyKey) {
             storySelectionScreen.classList.add('hidden');
             gameArea.classList.remove('hidden');
 
             currentStoryKey = storyKey;
+            
+            // 選択されたストーリーの詳細をAPIから取得
+            await loadSpecificStory(storyKey);
+            
             const selectedStory = storyData[currentStoryKey];
             currentQuestions = selectedStory.questions;
             currentQuestionIndex = 0;
@@ -220,25 +224,32 @@
         /**
          * stories.jsonファイルを読み込み、物語選択ボタンを生成する
          */
-        async function loadStories() {
+        async function loadStoryTitles() {
             loadingSpinnerInitial.classList.remove('hidden');
             let backoffDelay = 1000;
             const maxRetries = 5;
-
+            
+            const prompt = `日本昔話の物語名を配列で生成してください。物語は「ももたろう」「おおきなかぶ」「うさぎとかめ」を含みます。`;
+            
+            const payload = {
+                contents: [{
+                    role: "user",
+                    parts: [{ text: prompt }]
+                }],
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "ARRAY",
+                        items: { type: "STRING" }
+                    }
+                }
+            };
+            
             for (let i = 0; i < maxRetries; i++) {
                 try {
                     const apiKey = "";
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
                     
-                    const payload = {
-                        contents: [{
-                            role: "user",
-                            parts: [{
-                                text: `Provide a single JSON object containing Japanese folk tales. The top-level keys should be story titles like "ももたろう" or "おおきなかぶ". Each story object must have a "text" (the story content) and a "questions" array. Each question object should contain "prompt" (string), "options" (array of strings), and a "correct" property that is the index of the correct answer (number or array of numbers). Ensure the response is in a single JSON block.`
-                            }]
-                        }]
-                    };
-
                     const response = await fetch(apiUrl, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -246,31 +257,22 @@
                     });
                     
                     if (!response.ok) {
-                        if (response.status === 401) {
-                            throw new Error(`APIキーに問題があります。`);
-                        }
-                        if (response.status === 403) {
-                            throw new Error(`APIアクセス権限がありません。管理者にお問い合わせください。`);
-                        }
+                        if (response.status === 401) throw new Error(`APIキーに問題があります。`);
+                        if (response.status === 403) throw new Error(`APIアクセス権限がありません。管理者にお問い合わせください。`);
                         throw new Error(`データの読み込みに失敗しました (HTTP Status: ${response.status})`);
                     }
 
                     const result = await response.json();
                     const jsonText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
-                    if (!jsonText) {
-                        throw new Error("APIからの応答が空か、正しくない形式です。");
-                    }
+                    if (!jsonText) throw new Error("APIからの応答が空か、正しくない形式です。");
 
-                    // APIからの応答から、余分なバッククォートとキーワードを削除
-                    const cleanedJsonText = jsonText.replace(/```json\n|```/g, '');
-                    
-                    storyData = JSON.parse(cleanedJsonText);
+                    const storyTitles = JSON.parse(jsonText);
                     
                     storyOptionsContainer.innerHTML = '';
-                    for (const key in storyData) {
+                    storyTitles.forEach(title => {
                         const button = document.createElement('button');
-                        button.textContent = key;
-                        button.dataset.story = key;
+                        button.textContent = title;
+                        button.dataset.story = title;
                         button.classList.add(
                             'story-select-btn', 'py-4', 'px-8', 'rounded-full', 'font-bold',
                             'text-gray-800', 'bg-yellow-300', 'hover:bg-yellow-400',
@@ -282,7 +284,7 @@
                             startStoryGame(storyKey);
                         });
                         storyOptionsContainer.appendChild(button);
-                    }
+                    });
                     break; 
 
                 } catch (error) {
@@ -304,13 +306,99 @@
             }
         }
 
+        /**
+         * 指定されたストーリーの詳細をAPIから取得する
+         * @param {string} storyTitle
+         */
+        async function loadSpecificStory(storyTitle) {
+            loadingSpinnerInitial.classList.remove('hidden');
+            let backoffDelay = 1000;
+            const maxRetries = 5;
+
+            const prompt = `日本昔話の「${storyTitle}」について、簡単なあらすじと、その内容に関する選択式の問題を3つ作成してください。JSON形式で出力し、キーを物語の名前（「${storyTitle}」）としてください。物語のオブジェクトは、テキスト（"text"）と質問の配列（"questions"）を含み、各質問オブジェクトはプロンプト（"prompt"）、選択肢の配列（"options"）、そして正解のインデックス（"correct"）を含みます。`;
+            
+            const payload = {
+                contents: [{
+                    role: "user",
+                    parts: [{ text: prompt }]
+                }],
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "OBJECT",
+                        properties: {
+                            [storyTitle]: {
+                                type: "OBJECT",
+                                properties: {
+                                    text: { type: "STRING" },
+                                    questions: {
+                                        type: "ARRAY",
+                                        items: {
+                                            type: "OBJECT",
+                                            properties: {
+                                                prompt: { type: "STRING" },
+                                                options: {
+                                                    type: "ARRAY",
+                                                    items: { type: "STRING" }
+                                                },
+                                                correct: {
+                                                    type: "NUMBER"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const apiKey = "";
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                    
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (!response.ok) {
+                        if (response.status === 401) throw new Error(`APIキーに問題があります。`);
+                        if (response.status === 403) throw new Error(`APIアクセス権限がありません。管理者にお問い合わせください。`);
+                        throw new Error(`データの読み込みに失敗しました (HTTP Status: ${response.status})`);
+                    }
+
+                    const result = await response.json();
+                    const jsonText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+                    if (!jsonText) throw new Error("APIからの応答が空か、正しくない形式です。");
+                    
+                    const storyDetails = JSON.parse(jsonText);
+                    storyData[storyTitle] = storyDetails[storyTitle];
+                    break; 
+
+                } catch (error) {
+                    console.error(`Error loading story details for ${storyTitle} (retry ${i + 1}/${maxRetries}):`, error);
+                    if (i < maxRetries - 1) {
+                        await new Promise(res => setTimeout(res, backoffDelay));
+                        backoffDelay *= 2;
+                    } else {
+                        throw new Error(`ストーリー詳細の読み込みに失敗しました: ${error.message}`);
+                    }
+                }
+            }
+            loadingSpinnerInitial.classList.add('hidden');
+        }
+
         // イベントリスナー
         nextBtn.addEventListener('click', goToNextQuestion);
         backToSelectionBtn.addEventListener('click', displayStorySelection);
 
         // 初期設定
         window.onload = function() {
-            loadStories();
+            loadStoryTitles();
         };
 
     </script>
