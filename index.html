@@ -17,6 +17,13 @@
             max-width: 900px;
             margin: 0 auto;
         }
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
@@ -25,25 +32,27 @@
         <!-- Main Title -->
         <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-6 md:mb-10">ぶんしょうどっかいげーむ</h1>
 
-        <!-- Level Selection -->
-        <div id="level-selection" class="space-y-4 mb-6 md:mb-10">
-            <h2 class="text-xl md:text-3xl font-bold text-gray-700">れべるを えらんでね</h2>
-            <div class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4">
-                <button id="level-1-btn" class="flex-1 py-3 px-6 rounded-full font-bold transition-all duration-300 text-white bg-blue-500 hover:bg-blue-600 shadow-md transform hover:scale-105">
-                    れべる１（せんたくしき）
+        <!-- Story Selection Screen -->
+        <div id="story-selection-screen" class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-700 mb-4">すきなおはなしを えらんでね！</h2>
+            <div id="story-options-container" class="grid gap-4 sm:grid-cols-2">
+                <button data-story="ももたろう" class="story-select-btn py-4 px-8 rounded-full font-bold text-gray-800 bg-yellow-300 hover:bg-yellow-400 shadow-lg transform transition-all duration-300 hover:scale-105">
+                    ももたろう
                 </button>
-                <button id="level-2-btn" class="flex-1 py-3 px-6 rounded-full font-bold transition-all duration-300 text-white bg-green-500 hover:bg-green-600 shadow-md transform hover:scale-105">
-                    れべる２（あなうめしき）
+                <button data-story="うさぎとかめ" class="story-select-btn py-4 px-8 rounded-full font-bold text-gray-800 bg-green-300 hover:bg-green-400 shadow-lg transform transition-all duration-300 hover:scale-105">
+                    うさぎとかめ
                 </button>
-                <button id="level-3-btn" class="flex-1 py-3 px-6 rounded-full font-bold transition-all duration-300 text-white bg-orange-500 hover:bg-orange-600 shadow-md transform hover:scale-105">
-                    れべる３（きじゅつしき）
+                <button data-story="おおきなかぶ" class="story-select-btn py-4 px-8 rounded-full font-bold text-gray-800 bg-red-300 hover:bg-red-400 shadow-lg transform transition-all duration-300 hover:scale-105">
+                    おおきなかぶ
+                </button>
+                <button data-story="あかずきん" class="story-select-btn py-4 px-8 rounded-full font-bold text-gray-800 bg-blue-300 hover:bg-blue-400 shadow-lg transform transition-all duration-300 hover:scale-105">
+                    あかずきん
                 </button>
             </div>
         </div>
 
         <!-- Game Area -->
         <div id="game-area" class="space-y-6 hidden">
-
             <!-- Content Area (Story/Scenario) -->
             <div id="content-display" class="bg-gray-50 p-6 rounded-lg shadow-inner min-h-[150px] flex items-center justify-center text-left">
                 <p id="game-text" class="text-lg md:text-xl text-gray-700 leading-relaxed"></p>
@@ -54,120 +63,59 @@
                 <p id="game-prompt" class="text-xl md:text-2xl font-bold text-gray-800"></p>
             </div>
 
-            <!-- Answer Options for Level 1 -->
+            <!-- Answer Options -->
             <div id="options-container" class="grid gap-4 sm:grid-cols-2">
-                <!-- Buttons will be injected here by JavaScript for Level 1 -->
+                <!-- Buttons will be injected here by JavaScript -->
             </div>
             
-            <!-- Fill-in-the-blank input for Level 2 -->
-            <div id="fill-in-the-blank-container" class="hidden flex items-center justify-center space-x-2">
-                <input type="text" id="answer-input" placeholder="こたえをにゅうりょく" class="w-2/3 p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-blue-500">
-                <button id="submit-btn" class="py-3 px-6 rounded-full font-bold text-white bg-blue-500 hover:bg-blue-600 shadow-md transform transition-all duration-300 hover:scale-105">
-                    かいとうする
-                </button>
-            </div>
-
-            <!-- Descriptive input for Level 3 -->
-            <div id="descriptive-container" class="hidden flex flex-col items-center justify-center space-y-4">
-                <textarea id="descriptive-answer-input" placeholder="ものがたりをよんで、ないようをせつめいしてください" rows="5" class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-blue-500"></textarea>
-                <div class="flex space-x-4 w-full">
-                    <button id="descriptive-submit-btn" class="flex-1 py-3 px-6 rounded-full font-bold text-white bg-blue-500 hover:bg-blue-600 shadow-md transform transition-all duration-300 hover:scale-105">
-                        かいとうする
-                    </button>
-                    <!-- Loading indicator for API call -->
-                    <div id="loading-spinner" class="hidden flex-1 py-3 px-6 rounded-full font-bold text-white bg-gray-400 items-center justify-center">
-                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        ひょうかちゅう...
-                    </div>
-                </div>
-            </div>
-
             <!-- Feedback Message -->
             <div id="feedback-container" class="min-h-[50px] flex items-center justify-center">
                 <p id="feedback-message" class="text-2xl font-bold"></p>
             </div>
 
-            <!-- Navigation Button -->
-            <button id="next-btn" class="w-full py-4 px-8 rounded-full font-bold text-white bg-green-500 hover:bg-green-600 shadow-lg transform transition-all duration-300 hover:scale-105 hidden">
-                つぎへ
-            </button>
-
-            <!-- Back to Title Button -->
-            <button id="back-to-title-btn" class="w-full py-4 px-8 rounded-full font-bold text-white bg-gray-500 hover:bg-gray-600 shadow-lg transform transition-all duration-300 hover:scale-105 hidden">
-                たいとるにもどる
-            </button>
+            <!-- Navigation Buttons and Loading Spinner -->
+            <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+                <button id="back-to-selection-btn" class="w-full sm:w-1/2 py-3 px-6 rounded-full font-bold text-gray-800 bg-gray-300 hover:bg-gray-400 shadow-lg transform transition-all duration-300 hover:scale-105">
+                    もどる
+                </button>
+                <button id="next-btn" class="w-full sm:w-1/2 py-3 px-6 rounded-full font-bold text-white bg-green-500 hover:bg-green-600 shadow-lg transform transition-all duration-300 hover:scale-105 hidden">
+                    つぎのもんだいへ
+                </button>
+                <div id="loading-spinner" class="hidden flex items-center justify-center py-4 px-8 w-full rounded-full bg-gray-400 text-white font-bold">
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    せいさくちゅう...
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        // Game data structured by level.
-        const readingData = {
-            level1: [
-                {
-                    text: "けんたは こうえんで、ねこを みつけました。ねこは きの うえに のぼって おりられなくなっていました。けんたは しんぱいに なり、おかあさんを よびに いきました。おかあさんが きたとき、ねこは ぶじに おりてきました。",
-                    prompt: "けんたが みつけた どうぶつは なにですか？",
-                    options: ["いぬ", "ねこ", "とり"],
-                    correct: 1
-                },
-                {
-                    text: "りなは あたらしい えほんを もらいました。とても うれしかったので、すぐに よみはじめました。えほんの なかには、そらを とぶ ぺんぎんの おはなしが かいてありました。りなは、その ぺんぎんに 「ぺぺ」という なまえを つけました。",
-                    prompt: "りなが あたらしい えほんを もらったとき、どんな きもちでしたか？",
-                    options: ["かなしい", "うれしい", "おこっている"],
-                    correct: 1
-                }
-            ],
-            level2: [
-                {
-                    text: "きょうは、とても いい てんきです。ひなたは、こうえんで ともだちと 〇〇で あそびました。",
-                    answer: "ぼーる",
-                    prompt: "〇〇に はいる ことばは なにですか？"
-                },
-                {
-                    text: "あさ、めが さめると、まどの そとは 〇〇でした。きょうは えんそくの ひだったのに、ちゅうしに なってしまいました。",
-                    answer: "あめ",
-                    prompt: "〇〇に はいる ことばは なにですか？"
-                }
-            ],
-            level3: [
-                {
-                    text: "りょうたは、なつやすみに おばあちゃんの いえへ いきました。おばあちゃんは、りょうたの ために、たくさんの おいしい りょうりを つくってくれました。りょうたは、おばあちゃんが つくってくれた かれーらいすが いちばん すきでした。",
-                    prompt: "りょうたは なつやすみに どこへ いきましたか？また、いちばん すきな りょうりは なんでしたか？"
-                },
-                {
-                    text: "ゆうきは、がっこうの かえりみちに おおきな いぬを みつけました。いぬは みちに まよっているようで、おどおどしていました。ゆうきは、いぬが くびに つけていた なふだを みて、かいぬしの でんわばんごうに れんらくしました。かいぬしさんが むかえに きてくれて、いぬは ぶじに いえに かえることが できました。",
-                    prompt: "ゆうきは どのようして いぬを たすけましたか？"
-                }
-            ]
-        };
-
-        // Global variables
-        let currentLevel = null;
+        // Global variables for game state
+        let readingData = [];
         let currentQuestionIndex = 0;
-        let gameData = [];
 
         // UI Elements
-        const levelSelection = document.getElementById('level-selection');
-        const level1Btn = document.getElementById('level-1-btn');
-        const level2Btn = document.getElementById('level-2-btn');
-        const level3Btn = document.getElementById('level-3-btn');
+        const storySelectionScreen = document.getElementById('story-selection-screen');
         const gameArea = document.getElementById('game-area');
+        const storyOptionsContainer = document.getElementById('story-options-container');
         const gameText = document.getElementById('game-text');
         const gamePrompt = document.getElementById('game-prompt');
         const optionsContainer = document.getElementById('options-container');
-        const fillInTheBlankContainer = document.getElementById('fill-in-the-blank-container');
-        const answerInput = document.getElementById('answer-input');
-        const submitBtn = document.getElementById('submit-btn');
-        const descriptiveContainer = document.getElementById('descriptive-container');
-        const descriptiveAnswerInput = document.getElementById('descriptive-answer-input');
-        const descriptiveSubmitBtn = document.getElementById('descriptive-submit-btn');
         const feedbackMessage = document.getElementById('feedback-message');
         const nextBtn = document.getElementById('next-btn');
-        const backToTitleBtn = document.getElementById('back-to-title-btn');
+        const backToSelectionBtn = document.getElementById('back-to-selection-btn');
         const loadingSpinner = document.getElementById('loading-spinner');
-        const contentDisplay = document.getElementById('content-display');
+
+        // Pre-defined fairy tales (hiragana only)
+        const fairyTales = {
+            "ももたろう": "むかしむかし、おじいさんとおばあさんがいました。おばあさんがかわでせんたくをしていると、おおきなももがながれてきました。ももをもちかえってわってみると、なかからげんきなこどもがうまれました。ももからうまれたので、ももたろうとよばれました。ももたろうは、きびだんごをもって、おにをたいじにしゅっぱつしました。とちゅうで、いぬとさるときじをなかまにして、おにがしまへむかいました。みんなでちからをあわせて、おにをたいじしました。",
+            "うさぎとかめ": "うさぎと かめが くらべっこを することに なりました。うさぎは とても はやく はしりますが、かめは ゆっくりしか うごきません。うさぎは かめをばかにして、とちゅうでねてしまいました。かめはゆっくりとあるきつづけて、さいごにゴールしました。",
+            "おおきなかぶ": "おじいさんとおばあさんがいました。おじいさんがかぶのたねをまきました。かぶはどんどんおおきくなりました。おじいさんがぬこうとしましたが、ぬけません。おばあさん、まご、いぬ、ねこ、ねずみがつぎつぎにてつだいました。みんなでちからをあわせて、「うんとこしょ、どっこいしょ」とひっぱると、おおきなかぶがやっとぬけました。",
+            "あかずきん": "むかしむかし、かわいいおんなのこがいました。いつでもあかいいずきんをかぶっていたので、あかずきんとよばれていました。あるひ、おおかみがばあさんをたべて、あかずきんになりすましました。あかずきんがたずねると、おおかみはあかずきんもたべてしまいました。そのあと、きこりがおおかみのなかにいるふたりをみつけて、たすけだしました。"
+        };
 
         /**
          * Retries a function with exponential backoff.
@@ -187,210 +135,208 @@
                 }
             }
         }
-
+        
         /**
-         * Calls the Gemini API to evaluate a descriptive answer.
-         * @param {string} text The story text.
-         * @param {string} userAnswer The user's answer.
+         * Fetches questions for a selected story from the Gemini API.
+         * @param {string} storyKey The key of the selected story.
          */
-        async function evaluateAnswerWithAI(text, userAnswer) {
-            const prompt = `以下の物語とユーザーの回答を比較して、ユーザーの回答が物語の内容を正しく理解しているかどうかを評価してください。評価は『正解』または『不正解』のどちらかで、その理由も日本語で簡潔に説明してください。
-物語: ${text}
-ユーザーの回答: ${userAnswer}
-`;
+        async function fetchQuestionsForStory(storyKey) {
+            storySelectionScreen.classList.add('hidden');
+            gameArea.classList.remove('hidden');
+
+            loadingSpinner.classList.remove('hidden');
+            nextBtn.classList.add('hidden');
+            gameText.textContent = "";
+            gamePrompt.textContent = "";
+            optionsContainer.innerHTML = "";
+            feedbackMessage.textContent = "";
+
+            const storyText = fairyTales[storyKey];
+
+            const prompt = `
+            このどうわのぶんしょうをつかって、ねんちょうさんからしょうがくにねんせいのこどもがよめる、２つから４つのせんたくもんだいをJSON形式でつくってください。
+            
+            どうわ: ${storyText}
+            
+            もんだいを、'prompt'、'options'、'correct'の３つのきーをつかってつくってください。
+            'options'には３つかせんたくしを、ひらがなだけをつかってかいてください。
+            'correct'には、ただしいこたえのばんごうを０からはじまるすうじでいれてください。
+            
+            JSONのれいです:
+            [
+              {
+                "prompt": "うさぎがすきなものはなに？",
+                "options": ["りんご", "はっぱ", "にんじん"],
+                "correct": 1
+              },
+              {
+                "prompt": "どこにうさぎはいたの？",
+                "options": ["うち", "そと", "こうえん"],
+                "correct": 2
+              }
+            ]
+            `;
 
             const chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
-            const payload = { contents: chatHistory };
+            const payload = {
+                contents: chatHistory,
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "ARRAY",
+                        items: {
+                            type: "OBJECT",
+                            properties: {
+                                "prompt": { "type": "STRING" },
+                                "options": {
+                                    "type": "ARRAY",
+                                    "items": { "type": "STRING" }
+                                },
+                                "correct": { "type": "NUMBER" }
+                            },
+                            "propertyOrdering": ["prompt", "options", "correct"]
+                        }
+                    }
+                }
+            };
             const apiKey = "";
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
-            const response = await retryWithBackoff(async () => {
-                const res = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                if (!res.ok) {
-                    throw new Error(`API call failed: ${res.statusText}`);
-                }
-                return res.json();
-            });
-
-            const result = response.candidates[0].content.parts[0].text;
-            return result;
-        }
-
-        /**
-         * Initializes the game for a selected level.
-         * @param {number} level The level to start (1, 2, or 3).
-         */
-        function initializeGame(level) {
-            currentLevel = level;
-            gameData = readingData[`level${level}`];
-            currentQuestionIndex = 0;
-            
-            levelSelection.classList.add('hidden');
-            gameArea.classList.remove('hidden');
-            
-            displayQuestion();
-        }
-        
-        /**
-         * Returns the game to the title screen.
-         */
-        function backToTitle() {
-            gameArea.classList.add('hidden');
-            levelSelection.classList.remove('hidden');
-        }
-
-        /**
-         * Displays the current question or scenario based on the level.
-         */
-        function displayQuestion() {
-            // Check if all questions have been answered
-            if (currentQuestionIndex >= gameData.length) {
-                gameText.textContent = "おしまい！よく がんばりました！";
-                gamePrompt.textContent = "";
-                optionsContainer.innerHTML = "";
-                fillInTheBlankContainer.classList.add('hidden');
-                descriptiveContainer.classList.add('hidden');
-                nextBtn.classList.add('hidden');
-                backToTitleBtn.classList.remove('hidden');
-                feedbackMessage.textContent = "";
-                return;
-            }
-
-            const currentItem = gameData[currentQuestionIndex];
-            
-            // Reset UI for the new question
-            gameText.textContent = currentItem.text;
-            gamePrompt.textContent = currentItem.prompt;
-            optionsContainer.classList.add('hidden');
-            fillInTheBlankContainer.classList.add('hidden');
-            descriptiveContainer.classList.add('hidden');
-            nextBtn.classList.add('hidden');
-            backToTitleBtn.classList.add('hidden');
-            feedbackMessage.textContent = "";
-            answerInput.value = "";
-            descriptiveAnswerInput.value = "";
-
-            // Show UI elements based on the current level
-            if (currentLevel === 1) {
-                optionsContainer.classList.remove('hidden');
-                optionsContainer.innerHTML = "";
-                currentItem.options.forEach((option, index) => {
-                    const button = document.createElement('button');
-                    button.textContent = option;
-                    button.classList.add(
-                        'py-3', 'px-6', 'rounded-xl', 'font-bold', 'text-gray-800', 
-                        'bg-gray-200', 'hover:bg-blue-300', 'transition-all', 'duration-300',
-                        'shadow-sm', 'hover:shadow-lg', 'transform', 'hover:scale-105'
-                    );
-                    button.addEventListener('click', () => handleAnswer(index));
-                    optionsContainer.appendChild(button);
-                });
-            } else if (currentLevel === 2) {
-                fillInTheBlankContainer.classList.remove('hidden');
-            } else if (currentLevel === 3) {
-                descriptiveContainer.classList.remove('hidden');
-            }
-        }
-
-        /**
-         * Handles the user's answer choice for Level 1 and 2.
-         * @param {number} selectedIndex The index of the selected option.
-         */
-        function handleAnswer(selectedIndex) {
-            const currentItem = gameData[currentQuestionIndex];
-            
-            if (currentLevel === 1) {
-                // Disable all buttons after an answer is selected
-                Array.from(optionsContainer.children).forEach(button => {
-                    button.disabled = true;
-                });
-
-                if (selectedIndex === currentItem.correct) {
-                    feedbackMessage.textContent = "せいかい！";
-                    feedbackMessage.classList.add('text-green-600');
-                    feedbackMessage.classList.remove('text-red-600');
-                } else {
-                    feedbackMessage.textContent = "ざんねん...もういちど かんがえてみよう！";
-                    feedbackMessage.classList.add('text-red-600');
-                    feedbackMessage.classList.remove('text-green-600');
-                }
-                nextBtn.classList.remove('hidden');
-
-            } else if (currentLevel === 2) {
-                const userAnswer = answerInput.value.trim();
-                if (userAnswer === currentItem.answer) {
-                    feedbackMessage.textContent = "せいかい！";
-                    feedbackMessage.classList.add('text-green-600');
-                    feedbackMessage.classList.remove('text-red-600');
-                } else {
-                    feedbackMessage.textContent = "ざんねん...もういちど かんがえてみよう！";
-                    feedbackMessage.classList.add('text-red-600');
-                    feedbackMessage.classList.remove('text-green-600');
-                }
-                nextBtn.classList.remove('hidden');
-            }
-        }
-
-        /**
-         * Handles the user's descriptive answer for Level 3.
-         */
-        async function handleDescriptiveAnswer() {
-            const userAnswer = descriptiveAnswerInput.value.trim();
-            if (!userAnswer) {
-                feedbackMessage.textContent = "かいとうを にゅうりょくしてください。";
-                feedbackMessage.classList.add('text-red-600');
-                return;
-            }
-
-            const currentItem = gameData[currentQuestionIndex];
-            
-            descriptiveSubmitBtn.classList.add('hidden');
-            loadingSpinner.classList.remove('hidden');
-            
             try {
-                const evaluationResult = await evaluateAnswerWithAI(currentItem.text, userAnswer);
-                feedbackMessage.textContent = evaluationResult;
-                feedbackMessage.classList.remove('text-green-600', 'text-red-600');
-                nextBtn.classList.remove('hidden');
+                const response = await retryWithBackoff(async () => {
+                    const res = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!res.ok) {
+                        throw new Error(`API call failed: ${res.statusText}`);
+                    }
+                    return res.json();
+                });
+                
+                const resultText = response.candidates[0].content.parts[0].text;
+                const parsedResult = JSON.parse(resultText);
+
+                readingData = parsedResult.map(q => ({
+                    text: storyText,
+                    ...q
+                }));
+                currentQuestionIndex = 0;
+                displayQuestion();
             } catch (error) {
-                console.error("AI評価中にエラーが発生しました:", error);
-                feedbackMessage.textContent = "ひょうかちゅうに エラーが はっせいしました。もういちどためしてください。";
-                feedbackMessage.classList.add('text-red-600');
-                descriptiveSubmitBtn.classList.remove('hidden');
+                console.error("API call failed:", error);
+                gameText.textContent = "ごめんなさい、もんだいを つくることが できませんでした。もどって、もういちどためしてください。";
+                nextBtn.classList.add('hidden');
+                backToSelectionBtn.classList.remove('hidden');
             } finally {
                 loadingSpinner.classList.add('hidden');
             }
         }
 
         /**
-         * Moves to the next question.
+         * Displays the current question.
+         */
+        function displayQuestion() {
+            // Check if all questions have been answered
+            if (currentQuestionIndex >= readingData.length) {
+                gameText.textContent = "おしまい！よく がんばりました！";
+                gamePrompt.textContent = "";
+                optionsContainer.innerHTML = "";
+                nextBtn.classList.remove('hidden');
+                nextBtn.textContent = "ほかのおはなしをえらぶ";
+                feedbackMessage.textContent = "";
+                return;
+            }
+
+            const currentItem = readingData[currentQuestionIndex];
+            
+            // Reset UI for the new question
+            gameText.textContent = currentItem.text;
+            gamePrompt.textContent = currentItem.prompt;
+            optionsContainer.innerHTML = "";
+            nextBtn.classList.add('hidden');
+            backToSelectionBtn.classList.remove('hidden');
+            feedbackMessage.textContent = "";
+
+            // Show UI elements for the question
+            currentItem.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.classList.add(
+                    'py-3', 'px-6', 'rounded-xl', 'font-bold', 'text-gray-800', 
+                    'bg-gray-200', 'hover:bg-blue-300', 'transition-all', 'duration-300',
+                    'shadow-sm', 'hover:shadow-lg', 'transform', 'hover:scale-105'
+                );
+                button.addEventListener('click', () => handleAnswer(index));
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        /**
+         * Handles the user's answer choice.
+         * @param {number} selectedIndex The index of the selected option.
+         */
+        function handleAnswer(selectedIndex) {
+            const currentItem = readingData[currentQuestionIndex];
+            
+            // Disable all buttons after an answer is selected
+            Array.from(optionsContainer.children).forEach(button => {
+                button.disabled = true;
+            });
+
+            if (selectedIndex === currentItem.correct) {
+                feedbackMessage.textContent = "せいかい！";
+                feedbackMessage.classList.add('text-green-600');
+                feedbackMessage.classList.remove('text-red-600');
+            } else {
+                feedbackMessage.textContent = "ざんねん...もういちど かんがえてみよう！";
+                feedbackMessage.classList.add('text-red-600');
+                feedbackMessage.classList.remove('text-green-600');
+            }
+            nextBtn.classList.remove('hidden');
+            nextBtn.textContent = "つぎのもんだいへ";
+        }
+
+        /**
+         * Moves to the next question or fetches a new story.
          */
         function goToNextQuestion() {
-            currentQuestionIndex++;
-            displayQuestion();
+            if (currentQuestionIndex >= readingData.length - 1) {
+                // All questions answered, go back to story selection
+                displayStorySelection();
+            } else {
+                currentQuestionIndex++;
+                displayQuestion();
+            }
+        }
+
+        /**
+         * Displays the initial story selection screen.
+         */
+        function displayStorySelection() {
+            gameArea.classList.add('hidden');
+            storySelectionScreen.classList.remove('hidden');
         }
 
         // Event Listeners
-        level1Btn.addEventListener('click', () => initializeGame(1));
-        level2Btn.addEventListener('click', () => initializeGame(2));
-        level3Btn.addEventListener('click', () => initializeGame(3));
-        submitBtn.addEventListener('click', () => handleAnswer(null));
-        descriptiveSubmitBtn.addEventListener('click', handleDescriptiveAnswer);
+        storyOptionsContainer.querySelectorAll('.story-select-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const storyKey = e.target.dataset.story;
+                fetchQuestionsForStory(storyKey);
+            });
+        });
+
         nextBtn.addEventListener('click', goToNextQuestion);
-        backToTitleBtn.addEventListener('click', backToTitle);
+        backToSelectionBtn.addEventListener('click', displayStorySelection);
 
         // Initial setup
         window.onload = function() {
-            // Initially show level selection and hide game area
-            levelSelection.classList.remove('hidden');
-            gameArea.classList.add('hidden');
+            displayStorySelection();
         };
 
     </script>
 </body>
 </html>
+
 
