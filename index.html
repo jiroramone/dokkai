@@ -176,13 +176,11 @@
                 button.disabled = true;
             });
 
-            if (currentItem.correct instanceof Array) { // マルチセレクトの場合
-                 const correctIndices = new Set(currentItem.correct);
-                 const areSetsEqual = (a, b) => a.size === b.size && [...a].every(value => b.has(value));
-                 // 現在のロジックでは、handleAnswerは単一選択肢にしか対応していません。
-                 // ここでは便宜上、単一選択肢として処理します。
-                 // マルチセレクトを実装するには、クリックイベントの処理を修正する必要があります。
-                 // 今回は、頂いたコードのフォーマットに合わせるため、シングルセレクトとして扱います。
+            // 複数選択問題かどうかのチェック
+            const isMultiSelect = Array.isArray(currentItem.correct);
+
+            if (isMultiSelect) {
+                 // 複数選択問題は現在未対応のため、エラーメッセージを表示
                  feedbackMessage.textContent = "ざんねん...このもんだいは、1つしかえらべません。";
                  feedbackMessage.classList.add('text-red-600');
                  feedbackMessage.classList.remove('text-green-600');
@@ -235,126 +233,153 @@
          */
         async function loadStories() {
             loadingSpinnerInitial.classList.remove('hidden');
-            try {
-                // stories.jsonファイルをAPIで取得
-                const apiKey = "";
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-                const payload = {
-                    contents: [{
-                        role: "user",
-                        parts: [{
-                            text: `stories.jsonのデータを提供してください。JSON形式でお願いします。`
-                        }]
-                    }],
-                    generationConfig: {
-                        responseMimeType: "application/json",
-                        responseSchema: {
-                            type: "OBJECT",
-                            properties: {
-                                "ももたろう": {
-                                    "type": "OBJECT",
-                                    "properties": {
-                                        "text": { "type": "STRING" },
-                                        "questions": {
-                                            "type": "ARRAY",
-                                            "items": {
-                                                "type": "OBJECT",
-                                                "properties": {
-                                                    "prompt": { "type": "STRING" },
-                                                    "options": {
-                                                        "type": "ARRAY",
-                                                        "items": { "type": "STRING" }
-                                                    },
-                                                    "correct": { "type": "NUMBER" }
-                                                }
-                                            }
-                                        }
-                                    }
-                                },
-                                "おおきなかぶ": {
-                                    "type": "OBJECT",
-                                    "properties": {
-                                        "text": { "type": "STRING" },
-                                        "questions": {
-                                            "type": "ARRAY",
-                                            "items": {
-                                                "type": "OBJECT",
-                                                "properties": {
-                                                    "prompt": { "type": "STRING" },
-                                                    "options": {
-                                                        "type": "ARRAY",
-                                                        "items": { "type": "STRING" }
-                                                    },
-                                                    "correct": { "type": "NUMBER" }
-                                                }
-                                            }
-                                        }
-                                    }
-                                },
-                                "うさぎとかめ": {
-                                    "type": "OBJECT",
-                                    "properties": {
-                                        "text": { "type": "STRING" },
-                                        "questions": {
-                                            "type": "ARRAY",
-                                            "items": {
-                                                "type": "OBJECT",
-                                                "properties": {
-                                                    "prompt": { "type": "STRING" },
-                                                    "options": {
-                                                        "type": "ARRAY",
-                                                        "items": { "type": "STRING" }
-                                                    },
-                                                    "correct": { "type": "NUMBER" }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                             "propertyOrdering": ["ももたろう", "おおきなかぶ", "うさぎとかめ"]
-                        }
-                    }
-                };
+            let backoffDelay = 1000; // 1秒
+            const maxRetries = 5;
 
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const result = await response.json();
-                const jsonText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
-                if (!jsonText) {
-                    throw new Error("API response is empty or malformed");
-                }
-                storyData = JSON.parse(jsonText);
-                
-                // ボタンを動的に生成
-                storyOptionsContainer.innerHTML = '';
-                for (const key in storyData) {
-                    const button = document.createElement('button');
-                    button.textContent = key;
-                    button.dataset.story = key;
-                    button.classList.add(
-                        'story-select-btn', 'py-4', 'px-8', 'rounded-full', 'font-bold',
-                        'text-gray-800', 'bg-yellow-300', 'hover:bg-yellow-400',
-                        'shadow-lg', 'transform', 'transition-all', 'duration-300',
-                        'hover:scale-105'
-                    );
-                    button.addEventListener('click', (e) => {
-                        const storyKey = e.target.dataset.story;
-                        startStoryGame(storyKey);
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    // stories.jsonファイルをAPIで取得
+                    const apiKey = "";
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                    const payload = {
+                        contents: [{
+                            role: "user",
+                            parts: [{
+                                text: `Provide the stories.json data. The JSON should be in the following format: a single JSON object where keys are the story titles (e.g., "ももたろう") and values are objects containing 'text' (the story string) and 'questions' (an array of question objects). Each question object must have 'prompt' (string), 'options' (array of strings), and 'correct' (the correct index as a number OR an array of numbers for multi-select questions).`
+                            }]
+                        }],
+                        generationConfig: {
+                            responseMimeType: "application/json",
+                            responseSchema: {
+                                type: "OBJECT",
+                                properties: {
+                                    "ももたろう": {
+                                        "type": "OBJECT",
+                                        "properties": {
+                                            "text": { "type": "STRING" },
+                                            "questions": {
+                                                "type": "ARRAY",
+                                                "items": {
+                                                    "type": "OBJECT",
+                                                    "properties": {
+                                                        "prompt": { "type": "STRING" },
+                                                        "options": {
+                                                            "type": "ARRAY",
+                                                            "items": { "type": "STRING" }
+                                                        },
+                                                        "correct": {
+                                                            "type": "ARRAY",
+                                                            "items": { "type": "NUMBER" }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "おおきなかぶ": {
+                                        "type": "OBJECT",
+                                        "properties": {
+                                            "text": { "type": "STRING" },
+                                            "questions": {
+                                                "type": "ARRAY",
+                                                "items": {
+                                                    "type": "OBJECT",
+                                                    "properties": {
+                                                        "prompt": { "type": "STRING" },
+                                                        "options": {
+                                                            "type": "ARRAY",
+                                                            "items": { "type": "STRING" }
+                                                        },
+                                                        "correct": {
+                                                            "type": "NUMBER"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "うさぎとかめ": {
+                                        "type": "OBJECT",
+                                        "properties": {
+                                            "text": { "type": "STRING" },
+                                            "questions": {
+                                                "type": "ARRAY",
+                                                "items": {
+                                                    "type": "OBJECT",
+                                                    "properties": {
+                                                        "prompt": { "type": "STRING" },
+                                                        "options": {
+                                                            "type": "ARRAY",
+                                                            "items": { "type": "STRING" }
+                                                        },
+                                                        "correct": {
+                                                            "type": "NUMBER"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "propertyOrdering": ["ももたろう", "おおきなかぶ", "うさぎとかめ"]
+                            }
+                        }
+                    };
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
                     });
-                    storyOptionsContainer.appendChild(button);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    const jsonText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+                    if (!jsonText) {
+                        throw new Error("API response is empty or malformed");
+                    }
+                    storyData = JSON.parse(jsonText);
+                    
+                    // ボタンを動的に生成
+                    storyOptionsContainer.innerHTML = '';
+                    for (const key in storyData) {
+                        const button = document.createElement('button');
+                        button.textContent = key;
+                        button.dataset.story = key;
+                        button.classList.add(
+                            'story-select-btn', 'py-4', 'px-8', 'rounded-full', 'font-bold',
+                            'text-gray-800', 'bg-yellow-300', 'hover:bg-yellow-400',
+                            'shadow-lg', 'transform', 'transition-all', 'duration-300',
+                            'hover:scale-105'
+                        );
+                        button.addEventListener('click', (e) => {
+                            const storyKey = e.target.dataset.story;
+                            startStoryGame(storyKey);
+                        });
+                        storyOptionsContainer.appendChild(button);
+                    }
+                    // 成功した場合はループを抜ける
+                    break; 
+
+                } catch (error) {
+                    console.error(`Error loading stories (retry ${i + 1}/${maxRetries}):`, error);
+                    if (i < maxRetries - 1) {
+                        await new Promise(res => setTimeout(res, backoffDelay));
+                        backoffDelay *= 2;
+                    } else {
+                        const errorMessage = document.createElement('p');
+                        errorMessage.textContent = 'おはなしのデータをよみこむことができませんでした。もういちどためしてください。';
+                        errorMessage.classList.add('text-red-500', 'mt-4');
+                        storyOptionsContainer.appendChild(errorMessage);
+                    }
+                } finally {
+                    if (i === maxRetries - 1) {
+                        loadingSpinnerInitial.classList.add('hidden');
+                    }
                 }
-            } catch (error) {
-                console.error("Error loading stories:", error);
-                const errorMessage = document.createElement('p');
-                errorMessage.textContent = 'おはなしのデータをよみこむことができませんでした。もういちどためしてください。';
-                errorMessage.classList.add('text-red-500', 'mt-4');
-                storyOptionsContainer.appendChild(errorMessage);
-            } finally {
-                loadingSpinnerInitial.classList.add('hidden');
             }
         }
 
@@ -370,8 +395,4 @@
     </script>
 </body>
 </html>
-
-
-
-
 
