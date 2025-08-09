@@ -48,6 +48,710 @@
             content: ' ×';
             font-weight: bold;
         }
-        /* 画像をBase64に変換して背景に設定 */
+        /* 黒板風のスタイル */
         .chalkboard-bg {
-            background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAQFBAYEBQQEBgUFBgkGBxIBssLDRsPDxUaJicpQ0cWkYJtgoe/z/P////////////////////////////////////////////////////3u///v+/v/9/v//v+v+v9vv+v/v/v/3+/v/+b+v+b//u9vv////v///v//v+7/2+7/v+b+v+v+3+7/v///r/9+7+/v/+n+7/3+n+v/9v/f/d+7/z/+z//f/+///v/9/v//v+v+v9vv+v/v+f/3+//t+b+//b/z///v+//7+n+7/3+n+v/9v/f/d+7/z/+z//f/+///v//+f/d+v+b/v+n/r+7/v//v+/v/+b+v+b//u9vv////v///v//v+7/2+7/v+b+v+v+3+7/v///r/9+7+/v/+n+7/3+n+v/9v/f/d+7/z/+z//f/+///v/9/v//v+v+v9vv+v/v+f/3+//t+b+//b/z///v+//7+n+7/3+n+v/9v/f/d+7/z/+z//f/+///v//+f/d+v+b/v+n/r+7/v//v+x+b+r+b/r+f/d/z//v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d/v/d+b/n+7/z/7v/f/r/n+v/v/z//v/f/d+v+b/v+n/r+7/v//v+x+b+r+b/r+f/d/z//v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d/v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+x+7+v/z+x/r+7/x/t/v/d+x/v/r/r/n+x/z+b/v/9/7/r+v//v+x+z+n+z+n+n+z+b+b/z/v+f+b/z/x+7/z+f/x/f/v+z/n+z/v+f/d+v/v+n/r+7/v//v+x+x+7+v/z+x/r+7/x/t/v/d+x/v/r/r/n+x/z+b/v/9/7/r+v//v+x+z+n+z+n+n+z+b+b/z/v+f+b/z/x+7/z+f/x/f/v+z/n+z/v+f/d+v/v+n/r+7/v//v+x+x+x/r/x+b+r+f/x/n/f/v+x/v/n/b/n+b/x+z/v/9/x/r+n//v+f+x+b+n+f+n+b+n+b/z+n/d+b/v/f+x+7/z/n/x/f+z+n/v+z/x+f/f+v+z/n/b/n+b/z+n/x+7/z/n/f+v+z/x+7/n+7/z/n/x/v//v+z/x/f/d+x/v/r/r/n+x/z+b/v/9/7/r+v//v+x+x+x/r/x+b+r+f/x/n/f/v+x/v/n/b/n+b/x+z/v/9/x/r+n//v+f+x+b+n+f+n+b+n+b/z+n/d+b/v/f+x+7/z/n/x/f+z+n/v+z/x+f/f+v+z/n/b/n+b/z+n/x+7/z/n/f+v+z/x+7/n+7/z/n/x/v//v+z/x/f/d+x/v/r/r/n+x/z+b/v/9/7/r+v//v+//3+7+7/f+b/z+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v/r/v/f+f/z/b/z+f/v/b/z+b/r+z/z/n/t+7/v+x/b/n+x/b/n+f/v+z/x/v/z+f/v+z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d/v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+n+f+n+n+n+z/v+z/n+z/x+b/f/d/v+n/v/r/r/n+x+f/x/f+z+b/v+f/v+n+x/v/r/x+b/d+z/v+x+z+f+n+n+n+b/z+f/x+b/x+z/v+n/z/b/v+f/v+7/v/b/v+z/z+f/d+v/v+n/r+7/v//v+x+n+f+n+n+n+z/v+z/n+z/x+b/f/d/v+n/v+r/r/n+x+f/x+f+z+b/v+f/v+n+x+v/r/x+b/d+z/v+x+z+f+n+n+n+b/z+f/x+b/x+z/v+n/z/b/v+f/v+7/v/b/v+z/z+f/d+v/v+n/r+7/v//v+x+n+f+n+n+n+z/v+z/n+z/x+b/f/d/v+n/v+r/r/n+x+f/x+f+z+b/v+f/v+n+x+v/r/x+b/d+z/v+x+x+7+v/z+x/r+7/x/t/v/d+x/v/r/r/n+x/z+b/v/9/7/r+v//v+x+x+x/r/x+b+r+f/x/n/f/v+x/v/n/b/n+b/x+z/v/9/x/r+n//v+f+x+b+n+f+n+b+n+b/z+n/d+b/v/f+x+7/z/n/x/f+z+n/v+z/x+f/f+v+z/n/b/n+b/z+n/x+7/z/n/f+v+z/x+7/n+7/z/n/x/v//v+z/x/f/d+x/v/r/r/n+x/z+b/v/9/7/r+v//v+x+x+x/r/x+b+r+f/x/n/f/v+x/v/n/b/n+b/x+z/v/9/x/r+n//v+f+x+b+n+f+n+b+n+b/z+n/d+b/v/f+x+7/z/n/x/f+z+n/v+z/x+f/f+v+z/n/b/n+b/z+n/x+7/z/n/f+v+z/x+7/n+7/z/n/x/v//v+z/x/f/d+x/v/r/r/n+x/z+b/v/9/7/r+v//v+//3+7+7/f+b/z+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d/v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+n+f+n+n+n+z/v+z/n+z/x+b/f/d/v+n/v+r/r/n+x+f/x+f+z+b/v+f/v+n+x+v/r/x+b/d+z/v+x+z+f+n+n+n+b/z+f/x+b/x+z/v+n/z/b/v+f/v+7/v/b/v+z/z+f/d+v/v+n/r+7/v//v+x+n+f+n+n+n+z/v+z/n+z/x+b/f/d/v+n/v+r/r/n+x+f/x+f+z+b/v+f/v+n+x+v/r/x+b/d+z/v+x+z+f+n+n+n+b/z+f/x+b/x+z/v+n/z/b/v+f/v+7/v/b/v+z/z+f/d+v/v+n/r+7/v//v+x+n+f+n+n+n+z/v+z/n+z/x+b/f/d/v+n/v+r/r/n+x+f/x+f+z+b/v+f/v+n+x+v/r/x+b/d+z/v+z/v/z/v/z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d/v/d+b/n+7/z/7v/f/r/n+v/v/z//v+//v/r/n/b/x/n/b/v+7/z/b/x+z/n+z/v/r/b/z/f/n+f/n+z/n+f/f+7/z/b/v+b/v+n/n/v/v+z/x+v/d+n/z/b/z/n/r/f/n+z/x+b/v+x/z/n/x/f/v+z/n+z/v+f/d+v/v+n/r+7/v//v+z/v/z/v/z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+//v/r/n/b/x/n/b/v+7/z/b/x+z/n+z/v/r/b/z/f/n+f/n+z/n+f/f+7/z/b/v+b/v+n/n/v/v+z/x+v/d+n/z/b/z/n/r/f/n+z/x+b/v+x/z/n/x/f/v+z/n+z/v+f/d+v/v+n/r+7/v//v+z/v/z/v/z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+//v/r/n/b/x/n/b/v+7/z/b/x+z/n+z/v/r/b/z/f/n+f/n+z/n+f/f+7/z/b/v+b/v+n/n/v/v+z/x+v/d+n/z/b/z/n/r/f/n+z/x+b/v+x/z/n/x/f/v+z/n+z/v+f/d+v/v+n/r+7/v//v+z/v/z/v/z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+//v/r/n/b/x/n/b/v+7/z/b/x+z/n+z/v/r/b/z/f/n+f/n+z/n+f/f+7/z/b/v+b/v+n/n/v/v+z/x+v/d+n/z/b/z/n/r/f/n+z/x+b/v+x/z/n/x/f/v+z/n+z/v+f/d+v/v+n/r+7/v//v+x+7+v/z/x+r+7/x/t/v/d+x/v/r/r/n+x/z+b/v/9/7/r+v//v+x+z+n+z+n+n+z+b+b/z/v+f+b/z/x+7/z+f/x/f/v+z/n+z/v+f/d+v/v+n/r+7/v//v+x+x+7+v/z+x/r+7/x/t/v/d+x/v/r/r/n+x/z+b/v/9/7/r+v//v+x+z+n+z+n+n+z+b+b/z/v+f+b/z/x+7/z+f/x/f/v+z/n+z/v+f/d+v/v+n/r+7/v//v+x+x+7+v/z+x/r+7/x/t/v/d+x/v/r/r/n+x/z+b/v/9/7/r+v//v+x+z+n+z+n+n+z+b+b/z/v+f+b/z/x+7/z+f/x/f/v+z/n+z/v+f/d+v/v+n/r+7/v//v+x+x+7+v/z+x/r+7/x/t/v/d+x/v/r/r/n+x/z+b/v/9/7/r+v//v+x+z+n+z+n+n+z+b+b/z/v+f+b/z/x+7/z+f/x/f/v+z/n+z/v+f/d+v/v+n/r+7/v//v+x+x+7+v/z+x/r+7/x/t/v/d+x/v/r/r/n+x/z+b/v/9/7/r+v//v+x+z+n+z+n+n+z+b+b/z/v+f+b/z/x+7/z+f/x/f/v+z/n+z/v+f/d+v/v+n/r+7/v//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+v/v/z//v+x+7+r+f+b+r+n+v/n+f/d+x/r+v/z/n/z/v/x/v/z+f/v/z/v/b/r/n/r+b/t/b/v/r/v/z/v//v+//v+f+r/n/r+z/f+z/z+n/b/z+f/t/v/v/z/v//v+x+n+n+x+n+n+b/z/n/b/z+n/b/z/v+n/r+n/f/v/t/n/v+r/v/f+f/z/b/z+f/v+b/n+n/r+7/v/r/z/v/f/d+n/v+z/v//t/7/z/v+r+n+v/z/v//v+//3+//3+7+//b/z///v+z/v+v/d+f/t+v/d+v/d+b/n+7/z/7v/f/r/n+
+            background-color: #38674d; /* 深い緑色 */
+            color: white;
+            border: 5px solid #8B4513; /* 茶色の枠 */
+            border-radius: 10px;
+            padding: 20px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+            white-space: pre-wrap;
+            position: relative;
+        }
+        .chalkboard-bg::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8 flex items-center justify-center min-h-screen">
+    <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-10 max-w-3xl w-full">
+        <h1 id="app-title" class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-6">日本の昔話クイズ</h1>
+
+        <!-- ストーリーとクイズを表示するコンテナ -->
+        <div id="quiz-container">
+            <!-- JavaScriptによって内容が動的に挿入されます -->
+        </div>
+
+        <!-- コピーボタン -->
+        <div class="mt-8 flex justify-center space-x-4">
+            <button id="copy-json-btn" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75">
+                JSONをコピー
+            </button>
+        </div>
+    </div>
+
+    <!-- メッセージ表示用のモーダル -->
+    <div id="message-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-sm w-full text-center shadow-2xl">
+            <h3 id="modal-title" class="text-2xl font-bold mb-4">メッセージ</h3>
+            <p id="modal-message" class="text-gray-700 mb-6"></p>
+            <button id="modal-close-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 transform hover:scale-105">
+                OK
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // ユーザーが提供したJSONデータ
+        const allData = {
+            "ももたろう": {
+                "scenarios": [
+                    {
+                        "text": "むかしむかし、あるところにおじいさんとおばあさんがいました。\nおじいさんはやまへ しばかりに、おばあさんはかわへ せんたくにいきました。\nおばあさんが かわで せんたくをしていると、おおきな ももが 「どんぶらこ どんぶらこ」と ながれてきました。",
+                        "questions": [
+                            {
+                                "prompt": "おばあさんが せんたくをしていると、かわから なにが ながれてきましたか？",
+                                "options": ["りんご", "かご", "おおきなもも"],
+                                "correct": 2
+                            },
+                            {
+                                "prompt": "おじいさんは、どこに いきましたか？",
+                                "options": ["やま", "うみ", "まち"],
+                                "correct": 0
+                            },
+                            {
+                                "prompt": "おばあさんが せんたくをしていたのは、どこ？",
+                                "options": ["やま", "かわ", "まち"],
+                                "correct": 1
+                            }
+                        ]
+                    },
+                    {
+                        "text": "おばあさんは ももを いえにもちかえり、おじいさんと ふたりでたべようとしたところ、もものなかから げんきな おとこのこが とびだしました。\nこどもがいなかった おじいさんと おばあさんは、ももからうまれた おとこのこに「ももたろう」と なづけ、だいじに そだてました。",
+                        "questions": [
+                            {
+                                "prompt": "ももたろうは、どこから うまれましたか？",
+                                "options": ["かご", "もも", "はたけ"],
+                                "correct": 1
+                            },
+                            {
+                                "prompt": "もものなかから でてきたのは だれ？",
+                                "options": ["おんなのこ", "おじいさん", "おとこのこ"],
+                                "correct": 2
+                            },
+                            {
+                                "prompt": "おじいさんと おばあさんは、うまれたおとこのこに なんという なまえをつけましたか？",
+                                "options": ["ももたろう", "きびたろう", "いぬたろう"],
+                                "correct": 0
+                            }
+                        ]
+                    },
+                    {
+                        "text": "おおきく そだった ももたろうは、「むらびとを こまらせている おにを たいじします」といい、おばあさんに きびだんごを つくってもらうと、おにがしまへ しゅっぱつしました。",
+                        "questions": [
+                            {
+                                "prompt": "ももたろうは、なにを たいじに しゅっぱつしましたか？",
+                                "options": ["おおかみ", "おに", "たぬき"],
+                                "correct": 1
+                            },
+                            {
+                                "prompt": "おばあさんに つくってもらった たべものはなに？",
+                                "options": ["おにぎり", "おもち", "きびだんご"],
+                                "correct": 2
+                            },
+                            {
+                                "prompt": "ももたろうは、どこへ しゅっぱつしましたか？",
+                                "options": ["おにがしま", "おばあさんのいえ", "まち"],
+                                "correct": 0
+                            }
+                        ]
+                    },
+                    {
+                        "text": "おにがしまへいく とちゅう、ももたろうのまえに いぬと さると きじが あらわれ、きびだんごを ほしがりました。\nももたろうは、いえらいになって おにがしまへいっしょにいくことを やくそくして、きびだんごを あげました。",
+                        "questions": [
+                            {
+                                "prompt": "きびだんごをあげて、ももたろうのなかまになったいきものはなに？（すべてえらんでね）",
+                                "options": ["いぬ", "さる", "きじ", "ねこ"],
+                                "correct": [0, 1, 2],
+                                "isMultiSelect": true
+                            },
+                            {
+                                "prompt": "ももたろうに きびだんごを もらって なかまになった どうぶつは 3ひきいました。そのうちの 1ひきは だれ？",
+                                "options": ["ねこ", "さる", "くま"],
+                                "correct": 1
+                            },
+                            {
+                                "prompt": "きびだんごを もらうためのやくそくは、なに？",
+                                "options": ["おどること", "いっしょに おにがしまへいくこと", "うたをうたうこと"],
+                                "correct": 1
+                            }
+                        ]
+                    },
+                    {
+                        "text": "おにがしまについた ももたろうたち。おには おおさわぎしていました。\nこのチャンスに、ももたろうと さんびきのなかまは おにに おそいかかり、みごと おにを たいじしました。\nおにが もっていた たくさんの たからものを、むらへ もちかえりました。",
+                        "questions": [
+                            {
+                                "prompt": "おにたいじのあと、ももたろうたちは どうなりましたか？",
+                                "options": ["また おにがしまへ いった", "おにがしまに すんだ", "たからものを もちかえった"],
+                                "correct": 2
+                            },
+                            {
+                                "prompt": "ももたろうと なかまが おにがしまについたとき、おにたちは なにしていましたか？",
+                                "options": ["ごはんをたべていた", "おおさわぎしていた", "ねていた"],
+                                "correct": 1
+                            },
+                            {
+                                "prompt": "ももたろうたちは、おにからなにを もちかえりましたか？",
+                                "options": ["おかし", "たからもの", "おに"],
+                                "correct": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            "うさぎとかめ": {
+                "scenarios": [
+                    {
+                        "text": "むかしむかし、はしるのがはやいうさぎさんと、のんびりあるくかめさんがいました。あるひ、ふたりは かけっこをすることになりました。ゴールは、とおくにある おおきなきです。「よーい、どん！」うさぎさんは、ぴょんぴょん はしって、あっというまに かめさんを おいこしました。",
+                        "questions": [
+                            {
+                                "prompt": "はしるのがはやいのは、だれ？",
+                                "options": ["かめさん", "うさぎさん", "りすさん"],
+                                "correct": 1
+                            },
+                            {
+                                "prompt": "ふたりが することになったのは、なに？",
+                                "options": ["おにごっこ", "かけっこ", "かくれんぼ"],
+                                "correct": 1
+                            },
+                            {
+                                "prompt": "ゴールは、どこでしたか？",
+                                "options": ["やま", "おおきなき", "いえ"],
+                                "correct": 1
+                            }
+                        ]
+                    },
+                    {
+                        "text": "「かめさんなんて、おそいから すぐには こられないだろう。」うさぎさんは、きのかげで ねてしまいました。でも、かめさんは、あきらめずに ゆっくり、ゆっくり、あるきつづけます。",
+                        "questions": [
+                            {
+                                "prompt": "うさぎさんは、どうして ねてしまいましたか？",
+                                "options": ["つかれたから", "かめさんを まっていたから", "かめさんがおそいと おもったから"],
+                                "correct": 2
+                            },
+                            {
+                                "prompt": "うさぎさんが ねていたのは、どこ？",
+                                "options": ["ゴール", "きのかげ", "いえ"],
+                                "correct": 1
+                            },
+                            {
+                                "prompt": "かめさんは、どうやって あるきつづけましたか？",
+                                "options": ["はやく", "ゆっくり", "とまったり"],
+                                "correct": 1
+                            }
+                        ]
+                    },
+                    {
+                        "text": "うさぎさんが めをさますと、なんと、かめさんはもう ゴールのちかくにいました。うさぎさんは あわてて はしりだしましたが、かめさんは ちょうど ゴールしました。",
+                        "questions": [
+                            {
+                                "prompt": "うさぎさんが おきたとき、かめさんは どこにいましたか？",
+                                "options": ["うしろ", "ゴールのちかく", "いえ"],
+                                "correct": 1
+                            },
+                            {
+                                "prompt": "うさぎさんが はしりだしましたが、かめさんは どうなりましたか？",
+                                "options": ["おいこされた", "ねてしまった", "ゴールした"],
+                                "correct": 2
+                            },
+                            {
+                                "prompt": "うさぎさんは なぜ あわてて はしりだしましたか？",
+                                "options": ["かめさんが ゴールにちかづいていたから", "おなかがすいたから", "おそくなってしまって はずかしかったから"],
+                                "correct": 0
+                            }
+                        ]
+                    },
+                    {
+                        "text": "このかけっこは、かめさんの かちです。うさぎさんは、はずかしそうに かめさんの しょうりを みとめました。",
+                        "questions": [
+                            {
+                                "prompt": "かけっこでかったのは、だれですか？",
+                                "options": ["うさぎさん", "かめさん", "きこり"],
+                                "correct": 1
+                            },
+                            {
+                                "prompt": "うさぎさんは、かめさんの勝利をみとめたとき、どんなきもちでしたか？",
+                                "options": ["うれしかった", "たのしかった", "はずかしかった"],
+                                "correct": 2
+                            },
+                            {
+                                "prompt": "このおはなしは、なにを教えてくれますか？",
+                                "options": ["ともだちと なかよくすること", "あきらめずに がんばること", "みんなで たのしむこと"],
+                                "correct": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            "おおきなかぶ": {
+                "scenarios": [
+                    {
+                        "text": "ある日のことです。おじいさんは、かぶのたねをまきました。かぶはどんどんおおきくなり、せかいでいちばんおおきなかぶになりました。\nおじいさんは かぶを ひっぱりましたが、ぬくことはできませんでした。",
+                        "questions": [
+                            {
+                                "prompt": "おじいさんが かぶにかけたことばは、どんなことばですか？",
+                                "options": ["「はやくおおきくなれ、あまいかぶになれ」", "「うんとこしょ、どっこいしょ」", "「がんばるぞ！」"],
+                                "correct": 0
+                            },
+                            {
+                                "prompt": "おじいさんが かぶを ひっぱっても ぬけなかったのは、なぜですか？",
+                                "options": ["かぶが とても おおきかったから", "ひっぱりかたが わるかったから", "おばあさんが いなかったから"],
+                                "correct": 0
+                            },
+                            {
+                                "prompt": "おじいさんが かぶのたねを まいたあと、さいしょに かぶをぬこうとしたのは だれですか？",
+                                "options": ["おばあさん", "いぬ", "おじいさん"],
+                                "correct": 2
+                            }
+                        ]
+                    },
+                    {
+                        "text": "おじいさんは おばあさんを よびました。おばあさんが おじいさんを つかみ、おじいさんが かぶの はっぱを ひっぱりましたが、それでも ぬけません。",
+                        "questions": [
+                            {
+                                "prompt": "かぶをぬくのを、ふたりめにてつだったのは だれですか？",
+                                "options": ["まごむすめ", "おばあさん", "いぬ"],
+                                "correct": 1
+                            },
+                            {
+                                "prompt": "おばあさんは おじいさんの なにを つかんで ひっぱりましたか？",
+                                "options": ["て", "せなか", "こし"],
+                                "correct": 0
+                            },
+                            {
+                                "prompt": "おじいさんとおばあさんが ひっぱっても ぬけなかったのは なぜですか？",
+                                "options": ["ちからがたりなかったから", "かぶがちいさかったから", "ふたりのきもちがばらばらだったから"],
+                                "correct": 0
+                            }
+                        ]
+                    },
+                    {
+                        "text": "つぎに、まごむすめ、いぬ、ねこ、ねずみと、つぎつぎにみんながあつまってきました。\nみんなで いっせいに「うんとこしょ、どっこいしょ」と ひっぱりましたが、それでも ぬけません。",
+                        "questions": [
+                            {
+                                "prompt": "かぶをぬくのをてつだったのは、だれですか？（すべてえらんでね）",
+                                "options": ["おばあさん", "まごむすめ", "いぬ", "ねこ", "ねずみ"],
+                                "correct": [0, 1, 2, 3, 4],
+                                "isMultiSelect": true
+                            },
+                            {
+                                "prompt": "かぶをぬくのをてつだった なかまのなかで、いちばんちいさかったのは だれ？",
+                                "options": ["いぬ", "ねこ", "ねずみ"],
+                                "correct": 2
+                            },
+                            {
+                                "prompt": "みんなが ひっぱったときにいった ことばは なんですか？",
+                                "options": ["「よーいしょ！」", "「うんとこしょ、どっこいしょ」", "「みんなで がんばろう！」"],
+                                "correct": 1
+                            }
+                        ]
+                    },
+                    {
+                        "text": "ねこは ねずみをよびました。ねずみは ねこを つかみ、ねこは いぬを つかみ…と、みんなでつながって、ちからいっぱい ひっぱりました。\nすると、おおきなかぶが やっとぬけました。みんなは ちからをあわせることの たいせつさをしりました。",
+                        "questions": [
+                            {
+                                "prompt": "かぶをぬくのを さいごにてつだったのは だれですか？",
+                                "options": ["ねこ", "ねずみ", "いぬ"],
+                                "correct": 1
+                            },
+                            {
+                                "prompt": "みんなが つながって ひっぱったときに、かぶは どうなりましたか？",
+                                "options": ["ぬけなかった", "ちいさくなった", "やっとぬけた"],
+                                "correct": 2
+                            },
+                            {
+                                "prompt": "このおはなしから、みんながしった たいせつなことは なんですか？",
+                                "options": ["おはなしを よくきくこと", "ちからをあわせること", "ひとりでも がんばること"],
+                                "correct": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            "あかずきん": {
+                "scenarios": [
+                    {
+                        "text": "むかしむかし、「あかずきん」という かわいい おんなのこがいました。\nあるひ、おばあさんのいえに ケーキと ぶどうしゅを もっていくように、おかあさんに たのまれました。",
+                        "questions": [
+                            {
+                                "prompt": "あかずきんが いつもかぶっていたものはなに？",
+                                "options": ["あおいいずきん", "あかいいずきん", "きいろいずきん"],
+                                "correct": 1
+                            },
+                            {
+                                "prompt": "あかずきんが、おばあさんのいえに もっていくように たのまれたものは なに？",
+                                "options": ["パンとワイン", "ケーキとぶどうしゅ", "おかし"],
+                                "correct": 1
+                            },
+                            {
+                                "prompt": "あかずきんは、だれのおうちにいくところでしたか？",
+                                "options": ["おじいさん", "おともだち", "おばあさん"],
+                                "correct": 2
+                            }
+                        ]
+                    },
+                    {
+                        "text": "おかあさんは「もりで よりみちしないようにね」と いいました。\nでも、あかずきんは もりで おおかみに であって、おばあさんの いえのばしょを おしえてしまいました。\nそして、おおかみに「おはなをつんでからいくといいよ」といわれ、やくそくをやぶって よりみちを してしまいました。",
+                        "questions": [
+                            {
+                                "prompt": "あかずきんが おかあさんにいわれた やくそくは なんですか？",
+                                "options": ["おおきなこえでうたうこと", "おともだちとあそぶこと", "もりで よりみちしないこと"],
+                                "correct": 2
+                            },
+                            {
+                                "prompt": "あかずきんをだましたのはだれですか？",
+                                "options": ["おばあさん", "おおかみ", "お母さん"],
+                                "correct": 1
+                            },
+                            {
+                                "prompt": "あかずきんが、おおかみにいわれてしてしまったことは なんですか？",
+                                "options": ["もりで おはなをつむこと", "おうちにかえったこと", "おかしをたべること"],
+                                "correct": 0
+                            }
+                        ]
+                    },
+                    {
+                        "text": "あかずきんが おはなをつんでいるあいだに、おおかみは おばあさんのいえへ いきました。\nおおかみは おばあさんを たべてしまい、おばあさんに なりすましました。\nいえにきた あかずきんは、おばあさんのふりをした おおかみに たべられてしまいました。",
+                        "questions": [
+                            {
+                                "prompt": "おおかみは、まずだれを たべましたか？",
+                                "options": ["あかずきん", "おかあさん", "おばあさん"],
+                                "correct": 2
+                            },
+                            {
+                                "prompt": "おおかみは、あかずきんのどんなところを たべようとしましたか？",
+                                "options": ["かお", "こえ", "からだ"],
+                                "correct": 2
+                            },
+                            {
+                                "prompt": "おおかみが あかずきんに なりすました おばあさんとしていったことは なんですか？",
+                                "options": ["おめめを おおきくした", "くちを おおきくした", "おはなしをはじめた"],
+                                "correct": 1
+                            }
+                        ]
+                    },
+                    {
+                        "text": "おおかみが ねていると、そこに かりゅうどが やってきました。\nかりゅうどは おおかみの おなかをみて、はさみで おなかを きってみました。\nすると、おばあさんと あかずきんが なかから でてきました。ふたりは「こわかったー！」といいながら、いきて でられたことを よろこびました。",
+                        "questions": [
+                            {
+                                "prompt": "おおかみは なにをしていましたか？",
+                                "options": ["ねていた", "おきていた", "うたをうたっていた"],
+                                "correct": 0
+                            },
+                            {
+                                "prompt": "おおかみのおなかをきって、あかずきんたちを たすけたのは だれですか？",
+                                "options": ["きこり", "かりゅうど", "お母さん"],
+                                "correct": 1
+                            },
+                            {
+                                "prompt": "おおかみのおなかからでてきたのは、だれとだれ？（すべてえらんでね）",
+                                "options": ["あかずきん", "おおかみ", "おばあさん"],
+                                "correct": [0, 2],
+                                "isMultiSelect": true
+                            }
+                        ]
+                    },
+                    {
+                        "text": "そのあと、おおかみの おなかに いしを たくさんいれて、かわへ いかせました。\nおもたい いしのために、おおかみは かわにおちて おぼれてしまいました。\nあかずきんは もう にどと よりみちをしないと こころに きめました。",
+                        "questions": [
+                            {
+                                "prompt": "おおかみの おなかには、なにが いれられましたか？",
+                                "options": ["おかし", "いし", "おもちゃ"],
+                                "correct": 1
+                            },
+                            {
+                                "prompt": "おおかみは、どうなってしまいましたか？",
+                                "options": ["どこかへ にげた", "かりゅうどと くらしはじめた", "かわで おぼれてしまった"],
+                                "correct": 2
+                            },
+                            {
+                                "prompt": "あかずきんは、さいごに なにを こころに きめましたか？",
+                                "options": ["よりみちをしないこと", "おはなをたくさんつむこと", "おかしをかくして たべること"],
+                                "correct": 0
+                            }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // ランダムに選択された質問を格納する配列
+        let selectedQuestions = [];
+        let currentStoryName = null;
+        let currentScenarioIndex = 0;
+        let score = 0;
+        let totalQuestions = 0;
+        
+        const quizContainer = document.getElementById('quiz-container');
+        const appTitle = document.getElementById('app-title');
+        const modal = document.getElementById('message-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMessage = document.getElementById('modal-message');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+        const copyJsonBtn = document.getElementById('copy-json-btn');
+
+        // モーダルを表示する関数
+        const showMessageModal = (title, message) => {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            modal.classList.remove('hidden');
+        };
+
+        // モーダルを閉じる関数
+        const closeModal = () => {
+            modal.classList.add('hidden');
+        };
+
+        modalCloseBtn.addEventListener('click', closeModal);
+
+        // JSONをクリップボードにコピーする機能
+        copyJsonBtn.addEventListener('click', () => {
+            const jsonString = JSON.stringify(allData, null, 2);
+            try {
+                // `document.execCommand('copy')`を使用
+                const tempInput = document.createElement('textarea');
+                tempInput.value = jsonString;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                showMessageModal('コピー完了', 'JSONデータがクリップボードにコピーされました！');
+            } catch (err) {
+                console.error('コピー失敗:', err);
+                showMessageModal('コピー失敗', 'JSONデータのコピーに失敗しました。');
+            }
+        });
+
+        // ストーリー選択画面をレンダリングする関数
+        const renderStorySelection = () => {
+            appTitle.textContent = '昔話を選択してください';
+            quizContainer.innerHTML = `
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+                    ${Object.keys(allData).map(storyName => `
+                        <button class="story-select-btn bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-4 px-6 rounded-xl transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75" data-story="${storyName}">
+                            ${storyName}
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+            document.querySelectorAll('.story-select-btn').forEach(btn => {
+                btn.addEventListener('click', (event) => {
+                    currentStoryName = event.target.dataset.story;
+                    appTitle.textContent = `${currentStoryName}クイズ`;
+                    currentScenarioIndex = 0;
+                    score = 0;
+                    totalQuestions = 0;
+                    renderQuiz();
+                });
+            });
+        };
+
+        // ストーリーとクイズをレンダリングする関数
+        const renderQuiz = () => {
+            // 現在のストーリーとシナリオデータを取得
+            const currentStory = allData[currentStoryName];
+            const currentScenario = currentStory.scenarios[currentScenarioIndex];
+
+            // 終了判定
+            if (!currentScenario) {
+                endQuiz();
+                return;
+            }
+
+            // シナリオ内の質問からランダムで1つ選択
+            const randomIndex = Math.floor(Math.random() * currentScenario.questions.length);
+            selectedQuestions = [currentScenario.questions[randomIndex]];
+
+            // HTMLを動的に生成
+            quizContainer.innerHTML = `
+                <div class="chalkboard-bg mb-6">
+                    <p id="story-text" class="whitespace-pre-wrap">${currentScenario.text}</p>
+                </div>
+                <div id="questions-container"></div>
+                <div class="mt-6 flex justify-end">
+                    <button id="next-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 disabled:bg-gray-400" disabled>
+                        次へ
+                    </button>
+                </div>
+            `;
+
+            const questionsContainer = document.getElementById('questions-container');
+            const nextBtn = document.getElementById('next-btn');
+
+            // 質問と選択肢をレンダリング（ランダムに選ばれた1問のみ）
+            selectedQuestions.forEach((q, qIndex) => {
+                const questionElement = document.createElement('div');
+                questionElement.className = "mb-6";
+                questionElement.innerHTML = `
+                    <p class="text-xl font-semibold text-gray-800 mb-4">${q.prompt}</p>
+                    <div id="options-${qIndex}" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+                `;
+                questionsContainer.appendChild(questionElement);
+
+                const optionsContainer = document.getElementById(`options-${qIndex}`);
+                q.options.forEach((option, oIndex) => {
+                    const optionBtn = document.createElement('button');
+                    optionBtn.textContent = option;
+                    optionBtn.className = "text-left bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-5 rounded-xl transition duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75";
+                    optionBtn.dataset.qIndex = qIndex;
+                    optionBtn.dataset.oIndex = oIndex;
+                    optionBtn.addEventListener('click', handleAnswer);
+                    optionsContainer.appendChild(optionBtn);
+                });
+            });
+
+            // 次へボタンのクリックイベント
+            nextBtn.addEventListener('click', nextScenario);
+        };
+
+        // 回答を処理する関数
+        const handleAnswer = (event) => {
+            const btn = event.target;
+            const qIndex = parseInt(btn.dataset.qIndex);
+            const oIndex = parseInt(btn.dataset.oIndex);
+            const currentQuestion = selectedQuestions[qIndex];
+            const isMultiSelect = currentQuestion.isMultiSelect;
+            
+            if (!isMultiSelect) {
+                // 単一選択式の場合
+                // 同じ問題の他のボタンの色をリセット
+                const optionsContainer = document.getElementById(`options-${qIndex}`);
+                optionsContainer.querySelectorAll('button').forEach(b => {
+                    b.classList.remove('selected');
+                });
+                // 新しい選択肢を選択
+                btn.classList.add('selected');
+            } else {
+                // 複数選択式の場合
+                btn.classList.toggle('selected');
+            }
+            
+            // 選択肢が一つ以上選ばれていたら次へボタンを有効化
+            const allSelected = Array.from(document.querySelectorAll('#quiz-container button')).filter(b => b.classList.contains('selected')).length > 0;
+            document.getElementById('next-btn').disabled = !allSelected;
+        };
+
+        // 次のシナリオへ進む関数
+        const nextScenario = () => {
+            checkAnswers();
+            currentScenarioIndex++;
+            setTimeout(() => {
+                const quizContainer = document.getElementById('quiz-container');
+                quizContainer.innerHTML = '';
+                quizContainer.classList.add('opacity-0', 'transform', 'scale-95');
+                setTimeout(() => {
+                    renderQuiz();
+                    quizContainer.classList.remove('opacity-0', 'transform', 'scale-95');
+                }, 300);
+            }, 1000);
+        };
+
+        // 回答をチェックする関数
+        const checkAnswers = () => {
+            selectedQuestions.forEach((q, qIndex) => {
+                const optionsContainer = document.getElementById(`options-${qIndex}`);
+                const allButtons = Array.from(optionsContainer.querySelectorAll('button'));
+                const selectedButtons = allButtons.filter(b => b.classList.contains('selected'));
+
+                // 質問ボタンをすべて無効化
+                allButtons.forEach(btn => {
+                    btn.disabled = true;
+                    btn.classList.remove('selected');
+                });
+
+                if (q.isMultiSelect) {
+                    const correctIndices = new Set(q.correct);
+                    const selectedIndices = new Set(selectedButtons.map(btn => parseInt(btn.dataset.oIndex)));
+                    
+                    let isCorrect = true;
+                    if (correctIndices.size !== selectedIndices.size) {
+                        isCorrect = false;
+                    } else {
+                        for (const index of correctIndices) {
+                            if (!selectedIndices.has(index)) {
+                                isCorrect = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (isCorrect) {
+                        score++;
+                        selectedButtons.forEach(btn => btn.classList.add('correct', 'correct-mark'));
+                    } else {
+                        selectedButtons.forEach(btn => {
+                            const oIndex = parseInt(btn.dataset.oIndex);
+                            if (correctIndices.has(oIndex)) {
+                                btn.classList.add('correct', 'correct-mark');
+                            } else {
+                                btn.classList.add('incorrect', 'incorrect-mark');
+                            }
+                        });
+                        // 正解のボタンをハイライト
+                        allButtons.forEach(btn => {
+                            const oIndex = parseInt(btn.dataset.oIndex);
+                            if (correctIndices.has(oIndex) && !btn.classList.contains('incorrect')) {
+                                btn.classList.add('correct', 'correct-mark');
+                            }
+                        });
+                    }
+                } else {
+                    // 単一選択の場合
+                    const correctIndex = q.correct;
+                    const selectedIndex = selectedButtons.length > 0 ? parseInt(selectedButtons[0].dataset.oIndex) : null;
+                    
+                    if (selectedIndex === correctIndex) {
+                        score++;
+                        if (selectedButtons.length > 0) {
+                            selectedButtons[0].classList.add('correct', 'correct-mark');
+                        }
+                    } else {
+                        if (selectedButtons.length > 0) {
+                            selectedButtons[0].classList.add('incorrect', 'incorrect-mark');
+                        }
+                        optionsContainer.querySelector(`button[data-o-index='${correctIndex}']`).classList.add('correct', 'correct-mark');
+                    }
+                }
+            });
+            totalQuestions += selectedQuestions.length;
+        };
+
+        // クイズ終了
+        const endQuiz = () => {
+            quizContainer.innerHTML = `
+                <div class="text-center p-8">
+                    <p class="text-3xl font-bold text-gray-800 mb-4">クイズ終了！</p>
+                    <p class="text-xl text-gray-700">あなたのスコア: <span class="font-bold text-blue-600">${score} / ${totalQuestions}</span></p>
+                    <div class="mt-8">
+                        <button id="restart-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                            もう一度挑戦する
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('restart-btn').addEventListener('click', () => {
+                currentStoryName = null;
+                currentScenarioIndex = 0;
+                score = 0;
+                totalQuestions = 0;
+                renderStorySelection();
+            });
+        };
+
+        // 初期化
+        document.addEventListener('DOMContentLoaded', () => {
+            renderStorySelection();
+        });
+    </script>
+</body>
+</html>
