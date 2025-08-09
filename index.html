@@ -17,13 +17,6 @@
             max-width: 900px;
             margin: 0 auto;
         }
-        .animate-spin {
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
@@ -73,7 +66,7 @@
                 <p id="feedback-message" class="text-2xl font-bold"></p>
             </div>
 
-            <!-- Navigation Buttons and Loading Spinner -->
+            <!-- Navigation Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
                 <button id="back-to-selection-btn" class="w-full sm:w-1/2 py-3 px-6 rounded-full font-bold text-gray-800 bg-gray-300 hover:bg-gray-400 shadow-lg transform transition-all duration-300 hover:scale-105">
                     もどる
@@ -81,23 +74,16 @@
                 <button id="next-btn" class="w-full sm:w-1/2 py-3 px-6 rounded-full font-bold text-white bg-green-500 hover:bg-green-600 shadow-lg transform transition-all duration-300 hover:scale-105 hidden">
                     つぎのもんだいへ
                 </button>
-                <div id="loading-spinner" class="hidden flex items-center justify-center py-4 px-8 w-full rounded-full bg-gray-400 text-white font-bold">
-                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    せいさくちゅう...
-                </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Global variables for game state
-        let readingData = [];
+        // グローバル変数
+        let currentQuestions = [];
         let currentQuestionIndex = 0;
 
-        // UI Elements
+        // UIエレメント
         const storySelectionScreen = document.getElementById('story-selection-screen');
         const gameArea = document.getElementById('game-area');
         const storyOptionsContainer = document.getElementById('story-options-container');
@@ -107,139 +93,114 @@
         const feedbackMessage = document.getElementById('feedback-message');
         const nextBtn = document.getElementById('next-btn');
         const backToSelectionBtn = document.getElementById('back-to-selection-btn');
-        const loadingSpinner = document.getElementById('loading-spinner');
 
-        // Pre-defined fairy tales (hiragana only)
-        const fairyTales = {
-            "ももたろう": "むかしむかし、おじいさんとおばあさんがいました。おばあさんがかわでせんたくをしていると、おおきなももがながれてきました。ももをもちかえってわってみると、なかからげんきなこどもがうまれました。ももからうまれたので、ももたろうとよばれました。ももたろうは、きびだんごをもって、おにをたいじにしゅっぱつしました。とちゅうで、いぬとさるときじをなかまにして、おにがしまへむかいました。みんなでちからをあわせて、おにをたいじしました。",
-            "うさぎとかめ": "うさぎと かめが くらべっこを することに なりました。うさぎは とても はやく はしりますが、かめは ゆっくりしか うごきません。うさぎは かめをばかにして、とちゅうでねてしまいました。かめはゆっくりとあるきつづけて、さいごにゴールしました。",
-            "おおきなかぶ": "おじいさんとおばあさんがいました。おじいさんがかぶのたねをまきました。かぶはどんどんおおきくなりました。おじいさんがぬこうとしましたが、ぬけません。おばあさん、まご、いぬ、ねこ、ねずみがつぎつぎにてつだいました。みんなでちからをあわせて、「うんとこしょ、どっこいしょ」とひっぱると、おおきなかぶがやっとぬけました。",
-            "あかずきん": "むかしむかし、かわいいおんなのこがいました。いつでもあかいいずきんをかぶっていたので、あかずきんとよばれていました。あるひ、おおかみがばあさんをたべて、あかずきんになりすましました。あかずきんがたずねると、おおかみはあかずきんもたべてしまいました。そのあと、きこりがおおかみのなかにいるふたりをみつけて、たすけだしました。"
+        // あらかじめ用意した童話と問題のデータ
+        const storyData = {
+            "ももたろう": {
+                text: "むかしむかし、おじいさんとおばあさんがいました。おばあさんがかわでせんたくをしていると、おおきなももがながれてきました。ももをもちかえってわってみると、なかからげんきなこどもがうまれました。ももからうまれたので、ももたろうとよばれました。ももたろうは、きびだんごをもって、おにをたいじにしゅっぱつしました。とちゅうで、いぬとさるときじをなかまにして、おにがしまへむかいました。みんなでちからをあわせて、おにをたいじしました。",
+                questions: [
+                    {
+                        prompt: "ももたろうがうまれたのは、どこからですか？",
+                        options: ["きびだんご", "もも", "いぬ"],
+                        correct: 1
+                    },
+                    {
+                        prompt: "ももたろうが、おにたいじにむかうときにもっていたものはなに？",
+                        options: ["かばん", "きびだんご", "おもちゃ"],
+                        correct: 1
+                    },
+                    {
+                        prompt: "ももたろうのなかまになったいきものはどれ？",
+                        options: ["ねこ", "くま", "いぬ"],
+                        correct: 2
+                    }
+                ]
+            },
+            "うさぎとかめ": {
+                text: "うさぎと かめが くらべっこを することに なりました。うさぎは とても はやく はしりますが、かめは ゆっくりしか うごきません。うさぎは かめをばかにして、とちゅうでねてしまいました。かめはゆっくりとあるきつづけて、さいごにゴールしました。",
+                questions: [
+                    {
+                        prompt: "うさぎは どのように はしりますか？",
+                        options: ["ゆっくり", "はやく", "ぴょんぴょん"],
+                        correct: 1
+                    },
+                    {
+                        prompt: "かめは どのように うごきますか？",
+                        options: ["ゆっくり", "はやく", "ぴょんぴょん"],
+                        correct: 0
+                    },
+                    {
+                        prompt: "うさぎはゴールするまえに、なにをしましたか？",
+                        options: ["うたをうたった", "ねてしまった", "ごはんをたべた"],
+                        correct: 1
+                    }
+                ]
+            },
+            "おおきなかぶ": {
+                text: "おじいさんとおばあさんがいました。おじいさんがかぶのたねをまきました。かぶはどんどんおおきくなりました。おじいさんがぬこうとしましたが、ぬけません。おばあさん、まご、いぬ、ねこ、ねずみがつぎつぎにてつだいました。みんなでちからをあわせて、「うんとこしょ、どっこいしょ」とひっぱると、おおきなかぶがやっとぬけました。",
+                questions: [
+                    {
+                        prompt: "おじいさんがまいたものは、なに？",
+                        options: ["にんじん", "かぶのたね", "もも"],
+                        correct: 1
+                    },
+                    {
+                        prompt: "かぶをぬくのをてつだったのは、だれですか？",
+                        options: ["おじいさん", "おばあさん", "まご", "いぬ", "ねこ", "ねずみ"],
+                        correct: 5
+                    },
+                    {
+                        prompt: "みんなで「うんとこしょ、どっこいしょ」とひっぱったものはなに？",
+                        options: ["おおきなかぶ", "おおきないし", "おおきなき"],
+                        correct: 0
+                    }
+                ]
+            },
+            "あかずきん": {
+                text: "むかしむかし、かわいいおんなのこがいました。いつでもあかいいずきんをかぶっていたので、あかずきんとよばれていました。あるひ、おおかみがばあさんをたべて、あかずきんになりすましました。あかずきんがたずねると、おおかみはあかずきんもたべてしまいました。そのあと、きこりがおおかみのなかにいるふたりをみつけて、たすけだしました。",
+                questions: [
+                    {
+                        prompt: "おんなのこは、どんなふくをきていましたか？",
+                        options: ["あかいいずきん", "あおいずきん", "きいろいずきん"],
+                        correct: 0
+                    },
+                    {
+                        prompt: "おおかみにたべられてしまったのは、だれですか？",
+                        options: ["おじいさん", "きこり", "ばあさんとあかずきん"],
+                        correct: 2
+                    },
+                    {
+                        prompt: "さいごに、おおかみのなかからふたりをたすけだしたのは、だれですか？",
+                        options: ["きこり", "いぬ", "ももたろう"],
+                        correct: 0
+                    }
+                ]
+            }
         };
 
         /**
-         * Retries a function with exponential backoff.
-         * @param {Function} fn The function to retry.
-         * @param {number} retries The number of retries left.
-         * @param {number} delay The initial delay in milliseconds.
+         * 選択された物語の問題をセットして、ゲーム画面に切り替える
+         * @param {string} storyKey 選択された物語のキー
          */
-        async function retryWithBackoff(fn, retries = 5, delay = 1000) {
-            try {
-                return await fn();
-            } catch (error) {
-                if (retries > 0) {
-                    await new Promise(res => setTimeout(res, delay));
-                    return retryWithBackoff(fn, retries - 1, delay * 2);
-                } else {
-                    throw error;
-                }
-            }
-        }
-        
-        /**
-         * Fetches questions for a selected story from the Gemini API.
-         * @param {string} storyKey The key of the selected story.
-         */
-        async function fetchQuestionsForStory(storyKey) {
+        function startStoryGame(storyKey) {
             storySelectionScreen.classList.add('hidden');
             gameArea.classList.remove('hidden');
 
-            loadingSpinner.classList.remove('hidden');
-            nextBtn.classList.add('hidden');
-            gameText.textContent = "";
-            gamePrompt.textContent = "";
-            optionsContainer.innerHTML = "";
-            feedbackMessage.textContent = "";
-
-            const storyText = fairyTales[storyKey];
-
-            const prompt = `
-            このどうわのぶんしょうをつかって、ねんちょうさんからしょうがくにねんせいのこどもがよめる、２つから４つのせんたくもんだいをJSON形式でつくってください。
-            
-            どうわ: ${storyText}
-            
-            もんだいを、'prompt'、'options'、'correct'の３つのきーをつかってつくってください。
-            'options'には３つかせんたくしを、ひらがなだけをつかってかいてください。
-            'correct'には、ただしいこたえのばんごうを０からはじまるすうじでいれてください。
-            
-            JSONのれいです:
-            [
-              {
-                "prompt": "うさぎがすきなものはなに？",
-                "options": ["りんご", "はっぱ", "にんじん"],
-                "correct": 1
-              },
-              {
-                "prompt": "どこにうさぎはいたの？",
-                "options": ["うち", "そと", "こうえん"],
-                "correct": 2
-              }
-            ]
-            `;
-
-            const chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
-            const payload = {
-                contents: chatHistory,
-                generationConfig: {
-                    responseMimeType: "application/json",
-                    responseSchema: {
-                        type: "ARRAY",
-                        items: {
-                            type: "OBJECT",
-                            properties: {
-                                "prompt": { "type": "STRING" },
-                                "options": {
-                                    "type": "ARRAY",
-                                    "items": { "type": "STRING" }
-                                },
-                                "correct": { "type": "NUMBER" }
-                            },
-                            "propertyOrdering": ["prompt", "options", "correct"]
-                        }
-                    }
-                }
-            };
-            const apiKey = "";
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-
-            try {
-                const response = await retryWithBackoff(async () => {
-                    const res = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    if (!res.ok) {
-                        throw new Error(`API call failed: ${res.statusText}`);
-                    }
-                    return res.json();
-                });
-                
-                const resultText = response.candidates[0].content.parts[0].text;
-                const parsedResult = JSON.parse(resultText);
-
-                readingData = parsedResult.map(q => ({
-                    text: storyText,
-                    ...q
-                }));
-                currentQuestionIndex = 0;
-                displayQuestion();
-            } catch (error) {
-                console.error("API call failed:", error);
-                gameText.textContent = "ごめんなさい、もんだいを つくることが できませんでした。もどって、もういちどためしてください。";
-                nextBtn.classList.add('hidden');
-                backToSelectionBtn.classList.remove('hidden');
-            } finally {
-                loadingSpinner.classList.add('hidden');
-            }
+            const selectedStory = storyData[storyKey];
+            currentQuestions = selectedStory.questions.map(q => ({
+                text: selectedStory.text,
+                ...q
+            }));
+            currentQuestionIndex = 0;
+            displayQuestion();
         }
 
         /**
-         * Displays the current question.
+         * 現在の問題を表示する
          */
         function displayQuestion() {
-            // Check if all questions have been answered
-            if (currentQuestionIndex >= readingData.length) {
+            // 全問終了後の処理
+            if (currentQuestionIndex >= currentQuestions.length) {
                 gameText.textContent = "おしまい！よく がんばりました！";
                 gamePrompt.textContent = "";
                 optionsContainer.innerHTML = "";
@@ -249,9 +210,9 @@
                 return;
             }
 
-            const currentItem = readingData[currentQuestionIndex];
+            const currentItem = currentQuestions[currentQuestionIndex];
             
-            // Reset UI for the new question
+            // UIをリセット
             gameText.textContent = currentItem.text;
             gamePrompt.textContent = currentItem.prompt;
             optionsContainer.innerHTML = "";
@@ -259,7 +220,7 @@
             backToSelectionBtn.classList.remove('hidden');
             feedbackMessage.textContent = "";
 
-            // Show UI elements for the question
+            // 選択肢ボタンを表示
             currentItem.options.forEach((option, index) => {
                 const button = document.createElement('button');
                 button.textContent = option;
@@ -274,13 +235,13 @@
         }
 
         /**
-         * Handles the user's answer choice.
-         * @param {number} selectedIndex The index of the selected option.
+         * ユーザーの回答を処理する
+         * @param {number} selectedIndex 選択された選択肢のインデックス
          */
         function handleAnswer(selectedIndex) {
-            const currentItem = readingData[currentQuestionIndex];
+            const currentItem = currentQuestions[currentQuestionIndex];
             
-            // Disable all buttons after an answer is selected
+            // ボタンを無効化
             Array.from(optionsContainer.children).forEach(button => {
                 button.disabled = true;
             });
@@ -299,11 +260,11 @@
         }
 
         /**
-         * Moves to the next question or fetches a new story.
+         * 次の問題に進むか、物語選択画面に戻る
          */
         function goToNextQuestion() {
-            if (currentQuestionIndex >= readingData.length - 1) {
-                // All questions answered, go back to story selection
+            if (currentQuestionIndex >= currentQuestions.length - 1) {
+                // 全問終了後、物語選択画面に戻る
                 displayStorySelection();
             } else {
                 currentQuestionIndex++;
@@ -312,25 +273,25 @@
         }
 
         /**
-         * Displays the initial story selection screen.
+         * 物語の選択画面を表示する
          */
         function displayStorySelection() {
             gameArea.classList.add('hidden');
             storySelectionScreen.classList.remove('hidden');
         }
 
-        // Event Listeners
+        // イベントリスナー
         storyOptionsContainer.querySelectorAll('.story-select-btn').forEach(button => {
             button.addEventListener('click', (e) => {
                 const storyKey = e.target.dataset.story;
-                fetchQuestionsForStory(storyKey);
+                startStoryGame(storyKey);
             });
         });
 
         nextBtn.addEventListener('click', goToNextQuestion);
         backToSelectionBtn.addEventListener('click', displayStorySelection);
 
-        // Initial setup
+        // 初期設定
         window.onload = function() {
             displayStorySelection();
         };
@@ -338,5 +299,6 @@
     </script>
 </body>
 </html>
+
 
 
