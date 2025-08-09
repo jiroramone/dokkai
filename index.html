@@ -23,20 +23,20 @@
 
     <div class="container bg-white shadow-xl rounded-2xl p-6 md:p-10 text-center">
         <!-- Main Title -->
-        <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-6 md:mb-10">文章読解ゲーム</h1>
+        <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-6 md:mb-10">ぶんしょうどっかいゲーム</h1>
 
         <!-- Level Selection -->
         <div id="level-selection" class="space-y-4 mb-6 md:mb-10">
-            <h2 class="text-xl md:text-3xl font-bold text-gray-700">レベルを選んでね</h2>
+            <h2 class="text-xl md:text-3xl font-bold text-gray-700">レベルをえらんでね</h2>
             <div class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4">
                 <button id="level-1-btn" class="flex-1 py-3 px-6 rounded-full font-bold transition-all duration-300 text-white bg-blue-500 hover:bg-blue-600 shadow-md transform hover:scale-105">
-                    レベル１（選択式）
+                    レベル１（せんたくしき）
                 </button>
                 <button id="level-2-btn" class="flex-1 py-3 px-6 rounded-full font-bold transition-all duration-300 text-white bg-green-500 hover:bg-green-600 shadow-md transform hover:scale-105">
-                    レベル２（穴埋め式）
+                    レベル２（あなうめしき）
                 </button>
                 <button id="level-3-btn" class="flex-1 py-3 px-6 rounded-full font-bold transition-all duration-300 text-white bg-orange-500 hover:bg-orange-600 shadow-md transform hover:scale-105">
-                    レベル３（記述式）
+                    レベル３（きじゅつしき）
                 </button>
             </div>
         </div>
@@ -61,18 +61,18 @@
             
             <!-- Fill-in-the-blank input for Level 2 -->
             <div id="fill-in-the-blank-container" class="hidden flex items-center justify-center space-x-2">
-                <input type="text" id="answer-input" placeholder="答えを入力" class="w-2/3 p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-blue-500">
+                <input type="text" id="answer-input" placeholder="こたえをにゅうりょく" class="w-2/3 p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-blue-500">
                 <button id="submit-btn" class="py-3 px-6 rounded-full font-bold text-white bg-blue-500 hover:bg-blue-600 shadow-md transform transition-all duration-300 hover:scale-105">
-                    回答する
+                    かいとうする
                 </button>
             </div>
 
             <!-- Descriptive input for Level 3 -->
             <div id="descriptive-container" class="hidden flex flex-col items-center justify-center space-y-4">
-                <textarea id="descriptive-answer-input" placeholder="物語を読んで、内容を説明してください" rows="5" class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-blue-500"></textarea>
+                <textarea id="descriptive-answer-input" placeholder="ものがたりをよんで、ないようをせつめいしてください" rows="5" class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-blue-500"></textarea>
                 <div class="flex space-x-4 w-full">
                     <button id="descriptive-submit-btn" class="flex-1 py-3 px-6 rounded-full font-bold text-white bg-blue-500 hover:bg-blue-600 shadow-md transform transition-all duration-300 hover:scale-105">
-                        回答する
+                        かいとうする
                     </button>
                     <!-- Loading indicator for API call -->
                     <div id="loading-spinner" class="hidden flex-1 py-3 px-6 rounded-full font-bold text-white bg-gray-400 items-center justify-center">
@@ -80,7 +80,7 @@
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
-                        評価中...
+                        ひょうかちゅう...
                     </div>
                 </div>
             </div>
@@ -92,7 +92,12 @@
 
             <!-- Navigation Button -->
             <button id="next-btn" class="w-full py-4 px-8 rounded-full font-bold text-white bg-green-500 hover:bg-green-600 shadow-lg transform transition-all duration-300 hover:scale-105 hidden">
-                次へ
+                つぎへ
+            </button>
+
+            <!-- Back to Title Button -->
+            <button id="back-to-title-btn" class="w-full py-4 px-8 rounded-full font-bold text-white bg-gray-500 hover:bg-gray-600 shadow-lg transform transition-all duration-300 hover:scale-105 hidden">
+                タイトルにもどる
             </button>
         </div>
     </div>
@@ -102,38 +107,38 @@
         const readingData = {
             level1: [
                 {
-                    text: "けんたは公園で、猫を見つけました。猫は木の上に登って降りられなくなっていました。けんたは心配になり、お母さんを呼びに行きました。お母さんが来たとき、猫は無事に降りてきました。",
-                    prompt: "けんたが見つけた動物は何ですか？",
-                    options: ["犬", "猫", "鳥"],
+                    text: "けんたは こうえんで、ねこを みつけました。ねこは きの うえに のぼって おりられなくなっていました。けんたは しんぱいに なり、おかあさんを よびに いきました。おかあさんが きたとき、ねこは ぶじに おりてきました。",
+                    prompt: "けんたが みつけた どうぶつは なにですか？",
+                    options: ["いぬ", "ねこ", "とり"],
                     correct: 1
                 },
                 {
-                    text: "りなは新しい絵本をもらいました。とても嬉しかったので、すぐに読み始めました。絵本の中には、空を飛ぶペンギンのお話が書いてありました。りなは、そのペンギンに「ペペ」という名前をつけました。",
-                    prompt: "りなが新しい絵本をもらったとき、どんな気持ちでしたか？",
-                    options: ["悲しい", "嬉しい", "怒っている"],
+                    text: "りなは あたらしい えほんを もらいました。とても うれしかったので、すぐに よみはじめました。えほんの なかには、そらを とぶ ぺんぎんの おはなしが かいてありました。りなは、その ぺんぎんに 「ぺぺ」という なまえを つけました。",
+                    prompt: "りなが あたらしい えほんを もらったとき、どんな きもちでしたか？",
+                    options: ["かなしい", "うれしい", "おこっている"],
                     correct: 1
                 }
             ],
             level2: [
                 {
-                    text: "今日は、とてもいい天気です。ひなたは、公園で友達と〇〇で遊びました。",
+                    text: "きょうは、とても いい てんきです。ひなたは、こうえんで ともだちと 〇〇で あそびました。",
                     answer: "ボール",
-                    prompt: "〇〇に入る言葉は何ですか？"
+                    prompt: "〇〇に はいる ことばは なにですか？"
                 },
                 {
-                    text: "朝、目が覚めると、窓の外は〇〇でした。今日は遠足の日だったのに、中止になってしまいました。",
-                    answer: "雨",
-                    prompt: "〇〇に入る言葉は何ですか？"
+                    text: "あさ、めが さめると、まどの そとは 〇〇でした。きょうは えんそくの ひだったのに、ちゅうしに なってしまいました。",
+                    answer: "あめ",
+                    prompt: "〇〇に はいる ことばは なにですか？"
                 }
             ],
             level3: [
                 {
-                    text: "りょうたは、夏休みにおばあちゃんの家へ行きました。おばあちゃんは、りょうたのために、たくさんの美味しい料理を作ってくれました。りょうたは、おばあちゃんが作ってくれたカレーライスが一番好きでした。",
-                    prompt: "りょうたは夏休みにどこへ行きましたか？また、一番好きな料理は何でしたか？"
+                    text: "りょうたは、なつやすみに おばあちゃんの いえへ いきました。おばあちゃんは、りょうたの ために、たくさんの おいしい りょうりを つくってくれました。りょうたは、おばあちゃんが つくってくれた カレーライスが いちばん すきでした。",
+                    prompt: "りょうたは なつやすみに どこへ いきましたか？また、いちばん すきな りょうりは なんでしたか？"
                 },
                 {
-                    text: "ゆうきは、学校の帰り道に大きな犬を見つけました。犬は道に迷っているようで、おどおどしていました。ゆうきは、犬が首につけていた名札を見て、飼い主の電話番号に連絡しました。飼い主さんが迎えに来てくれて、犬は無事に家に帰ることができました。",
-                    prompt: "ゆうきはどのようにして犬を助けましたか？"
+                    text: "ゆうきは、がっこうの かえりみちに おおきな いぬを みつけました。いぬは みちに まよっているようで、おどおどしていました。ゆうきは、いぬが くびに つけていた なふだを みて、かいぬしの でんわばんごうに れんらくしました。かいぬしさんが むかえに きてくれて、いぬは ぶじに いえに かえることが できました。",
+                    prompt: "ゆうきは どのようして いぬを たすけましたか？"
                 }
             ]
         };
@@ -160,6 +165,7 @@
         const descriptiveSubmitBtn = document.getElementById('descriptive-submit-btn');
         const feedbackMessage = document.getElementById('feedback-message');
         const nextBtn = document.getElementById('next-btn');
+        const backToTitleBtn = document.getElementById('back-to-title-btn');
         const loadingSpinner = document.getElementById('loading-spinner');
         const contentDisplay = document.getElementById('content-display');
 
@@ -228,6 +234,14 @@
             
             displayQuestion();
         }
+        
+        /**
+         * Returns the game to the title screen.
+         */
+        function backToTitle() {
+            gameArea.classList.add('hidden');
+            levelSelection.classList.remove('hidden');
+        }
 
         /**
          * Displays the current question or scenario based on the level.
@@ -235,13 +249,14 @@
         function displayQuestion() {
             // Check if all questions have been answered
             if (currentQuestionIndex >= gameData.length) {
-                gameText.textContent = "おしまい！よく頑張りました！";
+                gameText.textContent = "おしまい！よく がんばりました！";
                 gamePrompt.textContent = "";
                 optionsContainer.innerHTML = "";
                 fillInTheBlankContainer.classList.add('hidden');
                 descriptiveContainer.classList.add('hidden');
                 nextBtn.classList.add('hidden');
-                feedbackMessage.textContent = "もう一度プレイする場合は、レベルを選んでね。";
+                backToTitleBtn.classList.remove('hidden');
+                feedbackMessage.textContent = "";
                 return;
             }
 
@@ -254,6 +269,7 @@
             fillInTheBlankContainer.classList.add('hidden');
             descriptiveContainer.classList.add('hidden');
             nextBtn.classList.add('hidden');
+            backToTitleBtn.classList.add('hidden');
             feedbackMessage.textContent = "";
             answerInput.value = "";
             descriptiveAnswerInput.value = "";
@@ -294,11 +310,11 @@
                 });
 
                 if (selectedIndex === currentItem.correct) {
-                    feedbackMessage.textContent = "正解！";
+                    feedbackMessage.textContent = "せいかい！";
                     feedbackMessage.classList.add('text-green-600');
                     feedbackMessage.classList.remove('text-red-600');
                 } else {
-                    feedbackMessage.textContent = "残念...もう一度考えてみよう！";
+                    feedbackMessage.textContent = "ざんねん...もういちど かんがえてみよう！";
                     feedbackMessage.classList.add('text-red-600');
                     feedbackMessage.classList.remove('text-green-600');
                 }
@@ -307,11 +323,11 @@
             } else if (currentLevel === 2) {
                 const userAnswer = answerInput.value.trim();
                 if (userAnswer === currentItem.answer) {
-                    feedbackMessage.textContent = "正解！";
+                    feedbackMessage.textContent = "せいかい！";
                     feedbackMessage.classList.add('text-green-600');
                     feedbackMessage.classList.remove('text-red-600');
                 } else {
-                    feedbackMessage.textContent = "残念...もう一度考えてみよう！";
+                    feedbackMessage.textContent = "ざんねん...もういちど かんがえてみよう！";
                     feedbackMessage.classList.add('text-red-600');
                     feedbackMessage.classList.remove('text-green-600');
                 }
@@ -325,7 +341,7 @@
         async function handleDescriptiveAnswer() {
             const userAnswer = descriptiveAnswerInput.value.trim();
             if (!userAnswer) {
-                feedbackMessage.textContent = "回答を入力してください。";
+                feedbackMessage.textContent = "かいとうを にゅうりょくしてください。";
                 feedbackMessage.classList.add('text-red-600');
                 return;
             }
@@ -342,7 +358,7 @@
                 nextBtn.classList.remove('hidden');
             } catch (error) {
                 console.error("AI評価中にエラーが発生しました:", error);
-                feedbackMessage.textContent = "評価中にエラーが発生しました。もう一度試してください。";
+                feedbackMessage.textContent = "ひょうかちゅうに エラーが はっせいしました。もういちどためしてください。";
                 feedbackMessage.classList.add('text-red-600');
                 descriptiveSubmitBtn.classList.remove('hidden');
             } finally {
@@ -365,6 +381,7 @@
         submitBtn.addEventListener('click', () => handleAnswer(null));
         descriptiveSubmitBtn.addEventListener('click', handleDescriptiveAnswer);
         nextBtn.addEventListener('click', goToNextQuestion);
+        backToTitleBtn.addEventListener('click', backToTitle);
 
         // Initial setup
         window.onload = function() {
@@ -376,3 +393,4 @@
     </script>
 </body>
 </html>
+
