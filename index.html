@@ -76,20 +76,11 @@
 <body class="bg-gray-100 p-4 sm:p-8 flex items-center justify-center min-h-screen">
     <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-10 max-w-3xl w-full">
         <h1 id="app-title" class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-6">日本の昔話クイズ</h1>
-
         <!-- ストーリーとクイズを表示するコンテナ -->
         <div id="quiz-container">
             <!-- JavaScriptによって内容が動的に挿入されます -->
         </div>
-
-        <!-- コピーボタン -->
-        <div class="mt-8 flex justify-center space-x-4">
-            <button id="copy-json-btn" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75">
-                JSONをコピー
-            </button>
-        </div>
     </div>
-
     <!-- メッセージ表示用のモーダル -->
     <div id="message-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-lg p-6 max-w-sm w-full text-center shadow-2xl">
@@ -100,7 +91,6 @@
             </button>
         </div>
     </div>
-
     <script>
         // ユーザーが提供したJSONデータ
         const allData = {
@@ -491,14 +481,14 @@
         let currentScenarioIndex = 0;
         let score = 0;
         let totalQuestions = 0;
-        
+        let answered = false; // 回答済みフラグを追加
+
         const quizContainer = document.getElementById('quiz-container');
         const appTitle = document.getElementById('app-title');
         const modal = document.getElementById('message-modal');
         const modalTitle = document.getElementById('modal-title');
         const modalMessage = document.getElementById('modal-message');
         const modalCloseBtn = document.getElementById('modal-close-btn');
-        const copyJsonBtn = document.getElementById('copy-json-btn');
 
         // モーダルを表示する関数
         const showMessageModal = (title, message) => {
@@ -513,24 +503,6 @@
         };
 
         modalCloseBtn.addEventListener('click', closeModal);
-
-        // JSONをクリップボードにコピーする機能
-        copyJsonBtn.addEventListener('click', () => {
-            const jsonString = JSON.stringify(allData, null, 2);
-            try {
-                // `document.execCommand('copy')`を使用
-                const tempInput = document.createElement('textarea');
-                tempInput.value = jsonString;
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                document.execCommand('copy');
-                document.body.removeChild(tempInput);
-                showMessageModal('コピー完了', 'JSONデータがクリップボードにコピーされました！');
-            } catch (err) {
-                console.error('コピー失敗:', err);
-                showMessageModal('コピー失敗', 'JSONデータのコピーに失敗しました。');
-            }
-        });
 
         // ストーリー選択画面をレンダリングする関数
         const renderStorySelection = () => {
@@ -571,6 +543,8 @@
             // シナリオ内の質問からランダムで1つ選択
             const randomIndex = Math.floor(Math.random() * currentScenario.questions.length);
             selectedQuestions = [currentScenario.questions[randomIndex]];
+            totalQuestions++;
+            answered = false; // 次の質問のためにフラグをリセット
 
             // HTMLを動的に生成
             quizContainer.innerHTML = `
@@ -610,148 +584,124 @@
                 });
             });
 
-            // 次へボタンのクリックイベント
-            nextBtn.addEventListener('click', nextScenario);
+            // 次へボタンのクリックイベントを次へボタンではなく、回答チェックボタンにすることで解決
+            nextBtn.textContent = '回答をチェック';
+            nextBtn.disabled = true;
+            nextBtn.addEventListener('click', checkAndProceed);
         };
+        
+        // 回答をチェックして次の問題に進む関数
+        const checkAndProceed = () => {
+            // 回答チェックのロジック
+            checkAnswers();
+            document.getElementById('next-btn').textContent = '次へ';
+            document.getElementById('next-btn').removeEventListener('click', checkAndProceed);
+            document.getElementById('next-btn').addEventListener('click', nextScenario);
+        }
 
         // 回答を処理する関数
         const handleAnswer = (event) => {
+            // すでに回答済みの場合は何もしない
+            if (answered) {
+                return;
+            }
+
             const btn = event.target;
             const qIndex = parseInt(btn.dataset.qIndex);
             const oIndex = parseInt(btn.dataset.oIndex);
             const currentQuestion = selectedQuestions[qIndex];
             const isMultiSelect = currentQuestion.isMultiSelect;
-            
-            if (!isMultiSelect) {
-                // 単一選択式の場合
-                // 同じ問題の他のボタンの色をリセット
-                const optionsContainer = document.getElementById(`options-${qIndex}`);
-                optionsContainer.querySelectorAll('button').forEach(b => {
-                    b.classList.remove('selected');
-                });
-                // 新しい選択肢を選択
-                btn.classList.add('selected');
-            } else {
-                // 複数選択式の場合
-                btn.classList.toggle('selected');
-            }
-            
-            // 選択肢が一つ以上選ばれていたら次へボタンを有効化
-            const allSelected = Array.from(document.querySelectorAll('#quiz-container button')).filter(b => b.classList.contains('selected')).length > 0;
-            document.getElementById('next-btn').disabled = !allSelected;
-        };
 
-        // 次のシナリオへ進む関数
-        const nextScenario = () => {
-            checkAnswers();
-            currentScenarioIndex++;
-            setTimeout(() => {
-                const quizContainer = document.getElementById('quiz-container');
-                quizContainer.innerHTML = '';
-                quizContainer.classList.add('opacity-0', 'transform', 'scale-95');
-                setTimeout(() => {
-                    renderQuiz();
-                    quizContainer.classList.remove('opacity-0', 'transform', 'scale-95');
-                }, 300);
-            }, 1000);
+            if (!isMultiSelect) {
+                // 単一選択
+                const optionsContainer = document.getElementById(`options-${qIndex}`);
+                optionsContainer.querySelectorAll('button').forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                document.getElementById('next-btn').disabled = false;
+            } else {
+                // 多重選択
+                btn.classList.toggle('selected');
+                const selectedButtons = Array.from(document.getElementById(`options-${qIndex}`).querySelectorAll('button.selected'));
+                document.getElementById('next-btn').disabled = selectedButtons.length === 0;
+            }
         };
 
         // 回答をチェックする関数
         const checkAnswers = () => {
+            answered = true; // 回答済みフラグを立てる
+            const nextBtn = document.getElementById('next-btn');
+
             selectedQuestions.forEach((q, qIndex) => {
                 const optionsContainer = document.getElementById(`options-${qIndex}`);
                 const allButtons = Array.from(optionsContainer.querySelectorAll('button'));
                 const selectedButtons = allButtons.filter(b => b.classList.contains('selected'));
-
+                
                 // 質問ボタンをすべて無効化
                 allButtons.forEach(btn => {
                     btn.disabled = true;
-                    btn.classList.remove('selected');
                 });
+                
+                let isCorrect = false;
 
                 if (q.isMultiSelect) {
                     const correctIndices = new Set(q.correct);
                     const selectedIndices = new Set(selectedButtons.map(btn => parseInt(btn.dataset.oIndex)));
                     
-                    let isCorrect = true;
-                    if (correctIndices.size !== selectedIndices.size) {
-                        isCorrect = false;
-                    } else {
-                        for (const index of correctIndices) {
-                            if (!selectedIndices.has(index)) {
-                                isCorrect = false;
-                                break;
-                            }
-                        }
-                    }
+                    isCorrect = correctIndices.size === selectedIndices.size &&
+                                [...correctIndices].every(index => selectedIndices.has(index));
 
                     if (isCorrect) {
                         score++;
                         selectedButtons.forEach(btn => btn.classList.add('correct', 'correct-mark'));
                     } else {
-                        selectedButtons.forEach(btn => {
-                            const oIndex = parseInt(btn.dataset.oIndex);
-                            if (correctIndices.has(oIndex)) {
-                                btn.classList.add('correct', 'correct-mark');
-                            } else {
-                                btn.classList.add('incorrect', 'incorrect-mark');
-                            }
-                        });
-                        // 正解のボタンをハイライト
-                        allButtons.forEach(btn => {
-                            const oIndex = parseInt(btn.dataset.oIndex);
-                            if (correctIndices.has(oIndex) && !btn.classList.contains('incorrect')) {
-                                btn.classList.add('correct', 'correct-mark');
-                            }
+                        selectedButtons.forEach(btn => btn.classList.add('incorrect', 'incorrect-mark'));
+                        q.correct.forEach(correctIndex => {
+                            allButtons[correctIndex].classList.add('correct', 'correct-mark');
                         });
                     }
                 } else {
-                    // 単一選択の場合
-                    const correctIndex = q.correct;
-                    const selectedIndex = selectedButtons.length > 0 ? parseInt(selectedButtons[0].dataset.oIndex) : null;
-                    
-                    if (selectedIndex === correctIndex) {
+                    const selectedIndex = selectedButtons.length > 0 ? parseInt(selectedButtons[0].dataset.oIndex) : -1;
+                    isCorrect = selectedIndex === q.correct;
+                    if (isCorrect) {
                         score++;
-                        if (selectedButtons.length > 0) {
-                            selectedButtons[0].classList.add('correct', 'correct-mark');
-                        }
+                        selectedButtons[0].classList.add('correct', 'correct-mark');
                     } else {
                         if (selectedButtons.length > 0) {
                             selectedButtons[0].classList.add('incorrect', 'incorrect-mark');
                         }
-                        optionsContainer.querySelector(`button[data-o-index='${correctIndex}']`).classList.add('correct', 'correct-mark');
+                        allButtons[q.correct].classList.add('correct', 'correct-mark');
                     }
                 }
             });
-            totalQuestions += selectedQuestions.length;
+            nextBtn.disabled = false;
         };
 
-        // クイズ終了
+        // 次のシナリオに進む関数
+        const nextScenario = () => {
+            currentScenarioIndex++;
+            renderQuiz();
+        };
+
+        // クイズ終了画面をレンダリングする関数
         const endQuiz = () => {
+            appTitle.textContent = 'クイズ終了';
             quizContainer.innerHTML = `
-                <div class="text-center p-8">
-                    <p class="text-3xl font-bold text-gray-800 mb-4">クイズ終了！</p>
-                    <p class="text-xl text-gray-700">あなたのスコア: <span class="font-bold text-blue-600">${score} / ${totalQuestions}</span></p>
-                    <div class="mt-8">
-                        <button id="restart-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                            もう一度挑戦する
-                        </button>
-                    </div>
+                <div class="text-center mt-8">
+                    <p class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">おめでとうございます！</p>
+                    <p class="text-xl text-gray-700">あなたのスコアは <span class="text-blue-600 font-bold text-2xl">${score}</span> / <span class="text-2xl">${totalQuestions}</span> 点です。</p>
+                    <button id="restart-btn" class="mt-8 bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                        もういちどプレイする
+                    </button>
                 </div>
             `;
-            document.getElementById('restart-btn').addEventListener('click', () => {
-                currentStoryName = null;
-                currentScenarioIndex = 0;
-                score = 0;
-                totalQuestions = 0;
-                renderStorySelection();
-            });
+            document.getElementById('restart-btn').addEventListener('click', renderStorySelection);
         };
 
-        // 初期化
+        // アプリの開始
         document.addEventListener('DOMContentLoaded', () => {
             renderStorySelection();
         });
+
     </script>
 </body>
 </html>
